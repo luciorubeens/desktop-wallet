@@ -168,7 +168,6 @@
   "build": {
     "productName": "Ark Desktop Wallet",
     "appId": "io.ark.desktop-wallet",
-    "compression": "maximum",
     "artifactName": "${name}-${os}-${arch}-${version}.${ext}",
     "publish": {
       "provider": "github",

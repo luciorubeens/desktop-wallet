@@ -2,35 +2,44 @@ language: node_js
 node_js:
   - "12"
 
-env:
-  global:
-    - ELECTRON_CACHE=$HOME/.cache/electron
-    - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
-
 matrix:
   include:
     - os: linux
+      env: EXTENSION=AppImage,tar.gz,deb
     - os: osx
       osx_image: xcode10.2
+      env:
+        - EXTENSION=zip,dmg
     - os: windows
+      env:
+        - YARN_GPG=no
+        - EXTENSION=exe
+        - CSC_IDENTITY_AUTO_DISCOVERY=false
 
 cache:
   yarn: true
   directories:
     - node_modules
-    - $HOME/.cache/electron
-    - $HOME/.cache/electron-builder
 
 before_install:
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libudev-dev libusb-1.0-0-dev fi
+  - 'if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libudev-dev libusb-1.0-0-dev; fi'
   - yarn global add node-gyp
+
+before_script:
+  - 'if [ "$TRAVIS_OS_NAME" == "windows" ]; then unset CSC_LINK CSC_KEY_PASSWORD; fi'
 
 script:
   - |
     if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-      yarn build:mac
+      yarn build:mac --c.extraMetadata.version=$TRAVIS_TAG
     elif [ "$TRAVIS_OS_NAME" == "windows" ]; then
-      yarn build:win
+      yarn build:win --c.extraMetadata.version=$TRAVIS_TAG
     else
-      yarn build:linux
+      yarn build:linux --c.extraMetadata.version=$TRAVIS_TAG
     fi
+
+if: tag IS present
+
+# branches:
+#  only:
+#    - master
