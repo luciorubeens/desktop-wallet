@@ -1,0 +1,15 @@
+os: windows
+language: node_js
+node_js:
+  - "12"
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+before_install:
+  - yarn global add node-gyp
+
+script:
+  - yarn build:win
