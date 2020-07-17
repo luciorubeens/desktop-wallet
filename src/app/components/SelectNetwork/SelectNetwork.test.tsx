@@ -6,19 +6,16 @@ import { SelectNetwork } from "./SelectNetwork";
 
 const networks = [
 	{
-		icon: "Ark",
+		coin: "Ark",
 		name: "Ark Ecosystem",
-		className: "text-theme-danger-400 border-theme-danger-light",
 	},
 	{
-		icon: "Bitcoin",
+		coin: "Bitcoin",
 		name: "Bitcoin",
-		className: "text-theme-warning-400 border-theme-warning-200",
 	},
 	{
-		icon: "Ethereum",
+		coin: "Ethereum",
 		name: "Ethereum",
-		className: "text-theme-neutral-800 border-theme-neutral-600",
 	},
 ];
 
@@ -54,7 +51,7 @@ describe("SelectNetwork", () => {
 			fireEvent.keyDown(input, { key: "Enter", code: 13 });
 		});
 
-		expect(getByTestId("select-asset__selected-Bitcoin")).toBeTruthy();
+		expect(getByTestId("select-asset__selected")).toHaveAttribute("aria-label", "Bitcoin");
 	});
 
 	it("should select first matching asset with tab", () => {
@@ -68,7 +65,7 @@ describe("SelectNetwork", () => {
 			fireEvent.keyDown(input, { key: "Tab", code: 9 });
 		});
 
-		expect(getByTestId("select-asset__selected-Bitcoin")).toBeTruthy();
+		expect(getByTestId("select-asset__selected")).toHaveAttribute("aria-label", "Bitcoin");
 	});
 
 	it("should not select non-matching asset after key input and tab", () => {
@@ -112,7 +109,7 @@ describe("SelectNetwork", () => {
 			fireEvent.keyDown(input, { key: "Enter", code: 13 });
 		});
 
-		expect(getByTestId("select-asset__selected-Bitcoin")).toBeTruthy();
+		expect(getByTestId("select-asset__selected")).toBeTruthy();
 
 		act(() => {
 			fireEvent.change(input, { target: { value: "test" } });
@@ -125,6 +122,6 @@ describe("SelectNetwork", () => {
 			fireEvent.keyDown(input, { key: "B", code: 65 });
 		});
 
-		expect(queryByTestId("select-asset__selected-Bitcoin")).not.toBeTruthy();
+		expect(queryByTestId("select-asset__selected")).not.toHaveAttribute("aria-label");
 	});
 });

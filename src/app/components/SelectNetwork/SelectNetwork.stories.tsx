@@ -9,37 +9,30 @@ export default {
 export const Default = () => {
 	const networks = [
 		{
-			icon: "Ark",
+			coin: "ARK",
 			name: "ARK Ecosystem",
-			className: "text-theme-danger-400 border-theme-danger-light",
 		},
 		{
-			icon: "Bitcoin",
+			coin: "Bitcoin",
 			name: "Bitcoin",
-			className: "text-theme-warning-400 border-theme-warning-200",
 		},
 		{
-			icon: "Ethereum",
+			coin: "Ethereum",
 			name: "Ethereum",
-			className: "text-theme-neutral-800 border-theme-neutral-600",
 		},
 		{
-			icon: "Lisk",
+			coin: "Lisk",
 			name: "Lisk",
-			className: "text-theme-primary border-theme-primary-400",
 		},
 		{
-			icon: "Ripple",
+			coin: "Ripple",
 			name: "Ripple",
-			className: "text-theme-primary-dark border-theme-primary-500",
 		},
 	];
 
 	return (
-		<div className="">
-			<div className="mt-10 w-128">
-				<SelectNetwork networks={networks} />
-			</div>
+		<div className="p-5 w-128">
+			<SelectNetwork networks={networks} />
 		</div>
 	);
 };

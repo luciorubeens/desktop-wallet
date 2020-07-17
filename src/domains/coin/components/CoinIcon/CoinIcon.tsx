@@ -18,7 +18,7 @@ type Props = {
 
 export const CoinIcon = ({ network, coin, iconSize, className, showTooltip, ...props }: Props) => {
 	const manifest = useCoinManifest(coin);
-	const networkManifest = network && manifest.networks?.[network];
+	const networkManifest = network && manifest?.networks?.[network];
 
 	const placeholder = {
 		iconName: undefined,

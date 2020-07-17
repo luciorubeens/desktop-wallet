@@ -23,7 +23,8 @@ exports[`SelectNetwork should render 1`] = `
           class="px-4 py-2 flex-0 w-14"
         >
           <div
-            class="sc-AxjAm jDAceZ border-theme-neutral-200"
+            class="sc-AxjAm IjnG border-theme-neutral-light text-theme-neutral"
+            data-testid="select-asset__selected"
           />
         </div>
         <div
@@ -77,7 +78,8 @@ exports[`SelectNetwork should render with networks 1`] = `
           class="px-4 py-2 flex-0 w-14"
         >
           <div
-            class="sc-AxjAm jDAceZ border-theme-neutral-200"
+            class="sc-AxjAm IjnG border-theme-neutral-light text-theme-neutral"
+            data-testid="select-asset__selected"
           />
         </div>
         <div
@@ -118,18 +120,10 @@ exports[`SelectNetwork should render with networks 1`] = `
         role="option"
       >
         <div
-          class="sc-AxjAm eZoLDa text-theme-danger-400 border-theme-danger-light"
-        >
-          <div
-            class="sc-AxirZ hyqZof"
-            height="26"
-            width="26"
-          >
-            <svg>
-              ark.svg
-            </svg>
-          </div>
-        </div>
+          aria-label="Ark"
+          class="sc-AxjAm eZoLDa border-theme-neutral-light text-theme-neutral"
+          data-testid="CoinIcon"
+        />
       </div>
       <div
         aria-selected="false"
@@ -138,10 +132,13 @@ exports[`SelectNetwork should render with networks 1`] = `
         role="option"
       >
         <div
-          class="sc-AxjAm eZoLDa text-theme-warning-400 border-theme-warning-200"
+          aria-label="Bitcoin"
+          class="sc-AxjAm eZoLDa border-theme-warning-200 text-theme-warning-400"
+          data-testid="CoinIcon"
         >
           <div
             class="sc-AxirZ hyqZof"
+            data-testid="CoinIcon__icon"
             height="26"
             width="26"
           >
@@ -158,10 +155,13 @@ exports[`SelectNetwork should render with networks 1`] = `
         role="option"
       >
         <div
-          class="sc-AxjAm eZoLDa text-theme-neutral-800 border-theme-neutral-600"
+          aria-label="Ethereum"
+          class="sc-AxjAm eZoLDa border-theme-neutral-600 text-theme-neutral-800"
+          data-testid="CoinIcon"
         >
           <div
             class="sc-AxirZ hyqZof"
+            data-testid="CoinIcon__icon"
             height="26"
             width="26"
           >
