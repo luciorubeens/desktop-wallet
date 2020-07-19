@@ -1,15 +1,12 @@
+import { useEnvironment } from "app/contexts";
 import { CoinIcon } from "domains/coin/components/CoinIcon";
+import { CoinType } from "domains/coin/models";
 import Downshift from "downshift";
 import React from "react";
 import { styled } from "twin.macro";
 
-type Network = {
-	coin: string;
-	name: string;
-};
-
 type SelectNetworkProps = {
-	networks: Network[];
+	networks: CoinType[];
 	placeholder?: string;
 	name?: string;
 	value?: string;
@@ -19,8 +16,8 @@ type SelectNetworkProps = {
 type InputValue = any;
 
 const TypeAhead = ({ input, matches }: any) => {
-	const formatTypeHeadToMatchInputCase = (network: Network, input: InputValue) => {
-		return [input, network?.name.slice(input.length)].join("");
+	const formatTypeHeadToMatchInputCase = (network: CoinType, input: InputValue) => {
+		return [input, network?.coin.slice(input.length)].join("");
 	};
 
 	const typeaheadFormatted = matches.length === 1 ? formatTypeHeadToMatchInputCase(matches[0], input) : "";
@@ -39,35 +36,45 @@ const InputWrapper = styled.div`
 `;
 
 export const SelectNetwork = ({ networks, placeholder, onSelect, name }: SelectNetworkProps) => {
-	const isMatch = (network: Network, input: InputValue) => {
-		if (!input) return false;
-		return network.name.toLowerCase().startsWith(input.toLowerCase());
+	const isMatch = (network: CoinType, input: InputValue) => {
+		if (!input) {
+			return false;
+		}
+
+		return network.coin.toLowerCase().startsWith(input.toLowerCase());
 	};
 
-	const getMatches = (networks: Network[], input: InputValue) => {
-		return networks.filter((network: Network) => isMatch(network, input));
+	const getMatches = (networks: CoinType[], input: InputValue) => {
+		return networks.filter((network: CoinType) => isMatch(network, input));
 	};
 
-	const assetClassName = (network: Network, selectedAsset: Network, input: any) => {
+	const assetClassName = (network: CoinType, selectedAsset?: CoinType, input?: InputValue) => {
 		// Selected is me. Show me green
-		if (selectedAsset && selectedAsset.name === network.name) {
+		if (selectedAsset && selectedAsset.coin === network.coin && selectedAsset.network === network.network) {
 			return "text-theme-success-500 border-theme-success-200";
 		}
+
 		// Selection is made but not me. Show me disabled
-		if (selectedAsset && selectedAsset.name !== network.name) return "text-theme-neutral-light";
+		if (selectedAsset && selectedAsset.coin !== network.coin && selectedAsset.network !== network.network) {
+			return "text-theme-neutral-light";
+		}
 
 		// Initial state. Nothing entered, nothing selected
-		if (!input) return undefined;
+		if (!input) {
+			return undefined;
+		}
 
 		// Input entered, matching with input. Show normal colors
-		if (isMatch(network, input)) return undefined;
+		if (isMatch(network, input)) {
+			return undefined;
+		}
 
 		// Disabled otherwise
 		return "text-theme-neutral-light";
 	};
 
 	return (
-		<Downshift itemToString={(i) => i?.name} onSelect={onSelect}>
+		<Downshift itemToString={(i) => i?.coin} onSelect={onSelect}>
 			{({
 				getLabelProps,
 				getInputProps,
@@ -124,7 +131,7 @@ export const SelectNetwork = ({ networks, placeholder, onSelect, name }: SelectN
 					</div>
 					{networks && networks.length > 0 && (
 						<div data-testid="select-asset__items" className="select-asset__items" {...getMenuProps()}>
-							{networks.map((network: Network, index: number) => {
+							{networks.map((network: CoinType, index: number) => {
 								return (
 									<div
 										key={index}
@@ -134,7 +141,7 @@ export const SelectNetwork = ({ networks, placeholder, onSelect, name }: SelectN
 										<CoinIcon
 											iconSize={26}
 											size="xl"
-											network={network.name}
+											network={network.network}
 											coin={network.coin}
 											className={assetClassName(network, selectedItem, inputValue)}
 										/>
@@ -147,6 +154,13 @@ export const SelectNetwork = ({ networks, placeholder, onSelect, name }: SelectN
 			)}
 		</Downshift>
 	);
+};
+
+export const SelectNetworkContainer = (props: SelectNetworkProps) => {
+	const env = useEnvironment();
+	const networks = React.useMemo(() => env?.availableNetworks(), [env]);
+
+	return <SelectNetwork {...props} networks={networks} />;
 };
 
 SelectNetwork.defaultProps = {

@@ -1,23 +1,8 @@
+import { availableNetworksMock } from "domains/coin/data";
 import React from "react";
-import { act } from "react-dom/test-utils";
-import { fireEvent, render } from "testing-library";
+import { act, fireEvent, render } from "utils/testing-library";
 
 import { SelectNetwork } from "./SelectNetwork";
-
-const networks = [
-	{
-		coin: "Ark",
-		name: "Ark Ecosystem",
-	},
-	{
-		coin: "Bitcoin",
-		name: "Bitcoin",
-	},
-	{
-		coin: "Ethereum",
-		name: "Ethereum",
-	},
-];
 
 describe("SelectNetwork", () => {
 	it("should render", () => {
@@ -26,12 +11,12 @@ describe("SelectNetwork", () => {
 	});
 
 	it("should render with networks", () => {
-		const { container } = render(<SelectNetwork networks={networks} />);
+		const { container } = render(<SelectNetwork networks={availableNetworksMock} />);
 		expect(container).toMatchSnapshot();
 	});
 
 	it("should show typeahead when typing has found one exact match", () => {
-		const { getByTestId } = render(<SelectNetwork networks={networks} />);
+		const { getByTestId } = render(<SelectNetwork networks={availableNetworksMock} />);
 		const input = getByTestId("select-asset__input");
 		act(() => {
 			fireEvent.change(input, { target: { value: "Bitco" } });
@@ -41,7 +26,7 @@ describe("SelectNetwork", () => {
 	});
 
 	it("should select first matching asset with enter", () => {
-		const { getByTestId } = render(<SelectNetwork networks={networks} />);
+		const { getByTestId } = render(<SelectNetwork networks={availableNetworksMock} />);
 		const input = getByTestId("select-asset__input");
 		act(() => {
 			fireEvent.change(input, { target: { value: "Bitco" } });
@@ -55,7 +40,7 @@ describe("SelectNetwork", () => {
 	});
 
 	it("should select first matching asset with tab", () => {
-		const { getByTestId } = render(<SelectNetwork networks={networks} />);
+		const { getByTestId } = render(<SelectNetwork networks={availableNetworksMock} />);
 		const input = getByTestId("select-asset__input");
 		act(() => {
 			fireEvent.change(input, { target: { value: "Bitcoi" } });
@@ -69,7 +54,7 @@ describe("SelectNetwork", () => {
 	});
 
 	it("should not select non-matching asset after key input and tab", () => {
-		const { getByTestId, queryByTestId } = render(<SelectNetwork networks={networks} />);
+		const { getByTestId, queryByTestId } = render(<SelectNetwork networks={availableNetworksMock} />);
 		const input = getByTestId("select-asset__input");
 		act(() => {
 			fireEvent.change(input, { target: { value: "Bot" } });
@@ -83,7 +68,7 @@ describe("SelectNetwork", () => {
 	});
 
 	it("should not select first matched asset after random key enter", () => {
-		const { getByTestId, queryByTestId } = render(<SelectNetwork networks={networks} />);
+		const { getByTestId, queryByTestId } = render(<SelectNetwork networks={availableNetworksMock} />);
 		const input = getByTestId("select-asset__input");
 
 		act(() => {
@@ -98,7 +83,7 @@ describe("SelectNetwork", () => {
 	});
 
 	it("should clear selection when changing input", () => {
-		const { getByTestId, queryByTestId } = render(<SelectNetwork networks={networks} />);
+		const { getByTestId, queryByTestId } = render(<SelectNetwork networks={availableNetworksMock} />);
 		const input = getByTestId("select-asset__input");
 
 		act(() => {

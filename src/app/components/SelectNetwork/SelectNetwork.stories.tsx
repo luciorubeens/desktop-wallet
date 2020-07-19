@@ -1,5 +1,7 @@
+import { availableNetworksMock } from "domains/coin/data";
 import React from "react";
 
+import { NetworkMenu } from "./NetworkMenu";
 import { SelectNetwork } from "./SelectNetwork";
 
 export default {
@@ -7,32 +9,17 @@ export default {
 };
 
 export const Default = () => {
-	const networks = [
-		{
-			coin: "ARK",
-			name: "ARK Ecosystem",
-		},
-		{
-			coin: "Bitcoin",
-			name: "Bitcoin",
-		},
-		{
-			coin: "Ethereum",
-			name: "Ethereum",
-		},
-		{
-			coin: "Lisk",
-			name: "Lisk",
-		},
-		{
-			coin: "Ripple",
-			name: "Ripple",
-		},
-	];
-
 	return (
 		<div className="p-5 w-128">
-			<SelectNetwork networks={networks} />
+			<SelectNetwork networks={availableNetworksMock} />
+		</div>
+	);
+};
+
+export const Input = () => {
+	return (
+		<div className="p-5">
+			<NetworkMenu />
 		</div>
 	);
 };

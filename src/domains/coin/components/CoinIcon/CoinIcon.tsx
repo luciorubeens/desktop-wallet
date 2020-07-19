@@ -17,8 +17,7 @@ type Props = {
 };
 
 export const CoinIcon = ({ network, coin, iconSize, className, showTooltip, ...props }: Props) => {
-	const manifest = useCoinManifest(coin);
-	const networkManifest = network && manifest?.networks?.[network];
+	const manifest = useCoinManifest({ coin, network });
 
 	const placeholder = {
 		iconName: undefined,
@@ -26,8 +25,8 @@ export const CoinIcon = ({ network, coin, iconSize, className, showTooltip, ...p
 		textClass: "text-theme-neutral",
 	};
 
-	const { iconName, borderClass, textClass } = networkManifest || manifest || placeholder;
-	const displayName = networkManifest ? `${coin} - ${network}` : coin;
+	const { iconName, borderClass, textClass } = manifest || placeholder;
+	const displayName = manifest?.displayName || coin;
 
 	return (
 		<Tippy content={displayName} disabled={!showTooltip || !displayName}>

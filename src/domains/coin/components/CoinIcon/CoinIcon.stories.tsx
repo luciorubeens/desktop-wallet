@@ -1,11 +1,11 @@
-import { CoinExtendedManifest } from "domains/coin/data";
+import { coinsExtendedManifest } from "domains/coin/data";
 import React from "react";
 
 import { CoinIcon } from "./CoinIcon";
 
 export default { title: "Domains / Coin / Components / CoinIcon" };
 
-const coins = Object.entries(CoinExtendedManifest);
+const coins = Object.entries(coinsExtendedManifest);
 
 export const Default = () => (
 	<div className="flex space-x-2">
