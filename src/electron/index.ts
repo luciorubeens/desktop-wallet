@@ -1,25 +1,23 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const electron = require("electron");
-const isDev = require("electron-is-dev");
-const winState = require("electron-window-state");
-const path = require("path");
-const assignMenu = require("./menu");
+import "../plugin/plugins";
 
-const { BrowserWindow, app, screen, ipcMain } = electron;
+import { app, BrowserWindow, screen } from "electron";
+import isDev from "electron-is-dev";
+import winState, { State } from "electron-window-state";
+import path from "path";
 
-const windows = {};
-let mainWindow;
-let windowState = null;
-let deeplinkingUrl = null;
+// import assignMenu from "./menu";
 
-const winURL = isDev
-	? "http://localhost:3000"
-	: process.env.ELECTRON_IS_E2E
-	? `file://${path.resolve("build/index.html")}`
-	: `file://${path.resolve(__dirname, "../")}/index.html`;
+let mainWindow: BrowserWindow | undefined;
+let windowState: State;
+let deeplinkingUrl: string | undefined;
+
+const winURL = isDev ? "http://localhost:3000" : `file://${path.resolve("build/index.html")}`;
+
+const isE2E = process.env.NODE_ENV === "e2e";
 
 const installExtensions = async () => {
-	if (isDev) {
+	if (isDev && !isE2E) {
 		const installer = require("electron-devtools-installer");
 		const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
 		const extensions = ["REACT_DEVELOPER_TOOLS"];
@@ -30,34 +28,16 @@ const installExtensions = async () => {
 	}
 };
 
-function broadcastURL(url) {
+function broadcastURL(url: string | undefined) {
 	if (!url || typeof url !== "string") {
 		return;
 	}
 
 	if (mainWindow && mainWindow.webContents) {
 		mainWindow.webContents.send("process-url", url);
-		deeplinkingUrl = null;
+		deeplinkingUrl = undefined;
 	}
 }
-
-ipcMain.on("disable-iframe-protection", function (_event, urls) {
-	const filter = { urls };
-	windows.main.webContents.session.webRequest.onHeadersReceived(filter, (details, done) => {
-		const headers = details.responseHeaders;
-
-		const xFrameOrigin = Object.keys(headers).find((header) => header.toString().match(/^x-frame-options$/i));
-		if (xFrameOrigin) {
-			delete headers[xFrameOrigin];
-		}
-
-		done({
-			cancel: false,
-			responseHeaders: headers,
-			statusLine: details.statusLine,
-		});
-	});
-});
 
 function createWindow() {
 	const { width, height } = screen.getPrimaryDisplay().workAreaSize;
@@ -82,34 +62,30 @@ function createWindow() {
 		},
 	});
 
-	mainWindow.isMain = true;
-
 	windowState.manage(mainWindow);
 	mainWindow.loadURL(winURL);
 	mainWindow.setBackgroundColor("#f7fafb");
 	mainWindow.setContentProtection(true);
 
-	mainWindow.on("close", () => (mainWindow = null));
-	mainWindow.on("closed", () => (mainWindow = null));
+	mainWindow.on("close", () => (mainWindow = undefined));
+	mainWindow.on("closed", () => (mainWindow = undefined));
 
 	mainWindow.webContents.on("did-finish-load", () => {
 		const version = app.getVersion();
 		const windowTitle = `ARK Desktop Wallet ${version}`;
-		mainWindow.setTitle(windowTitle);
+		mainWindow?.setTitle(windowTitle);
 
 		broadcastURL(deeplinkingUrl);
 	});
 
-	if (isDev) {
-		installExtensions()
-			.then(() => mainWindow.webContents.openDevTools())
-			.catch((error) => console.error(error));
+	if (isDev && !isE2E) {
+		// installExtensions()
+		// 	.then(() => mainWindow?.webContents.openDevTools())
+		// 	.catch((error) => console.error(error));
 	}
 }
 
-assignMenu({ createWindow });
-
-app.on("ready", createWindow);
+// app.on("ready", createWindow);
 
 app.on("window-all-closed", () => {
 	if (process.platform !== "darwin") {
@@ -119,7 +95,7 @@ app.on("window-all-closed", () => {
 
 app.on("activate", () => {
 	if (mainWindow === null) {
-		createWindow();
+		// createWindow();
 	}
 });
 
