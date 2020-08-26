@@ -29,7 +29,7 @@ exports[`BusinessRegistrationForm should render step 2 1`] = `
               <label
                 class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
                 data-testid="FormLabel"
-                for="name"
+                for="meta.displayName"
               >
                 Name
                 <div
@@ -40,7 +40,7 @@ exports[`BusinessRegistrationForm should render step 2 1`] = `
               <input
                 class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 "
                 data-testid="Input"
-                name="name"
+                name="meta.displayName"
                 type="text"
               />
             </fieldset>
@@ -50,7 +50,7 @@ exports[`BusinessRegistrationForm should render step 2 1`] = `
               <label
                 class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
                 data-testid="FormLabel"
-                for="description"
+                for="meta.description"
               >
                 Description
                 <div
@@ -61,7 +61,7 @@ exports[`BusinessRegistrationForm should render step 2 1`] = `
               <textarea
                 class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 "
                 data-testid="TextArea"
-                name="description"
+                name="meta.description"
               />
             </fieldset>
             <fieldset
@@ -70,7 +70,7 @@ exports[`BusinessRegistrationForm should render step 2 1`] = `
               <label
                 class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
                 data-testid="FormLabel"
-                for="website"
+                for="meta.website"
               >
                 Website
                 <div
@@ -81,7 +81,7 @@ exports[`BusinessRegistrationForm should render step 2 1`] = `
               <input
                 class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 "
                 data-testid="Input"
-                name="website"
+                name="meta.website"
                 type="website"
               />
             </fieldset>

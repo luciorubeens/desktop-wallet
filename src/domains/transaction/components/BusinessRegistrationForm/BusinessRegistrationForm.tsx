@@ -13,7 +13,11 @@ import { InputFee } from "domains/transaction/components/InputFee";
 import { LinkCollection } from "domains/transaction/components/LinkCollection";
 import { LinkList } from "domains/transaction/components/LinkList";
 import { TotalAmountBox } from "domains/transaction/components/TotalAmountBox";
-import { RegistrationForm } from "domains/transaction/pages/Registration/Registration.models";
+import {
+	RegistrationComponent,
+	RegistrationForm,
+	RegistrationTransactionDetailsOptions,
+} from "domains/transaction/pages/Registration/Registration.models";
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -29,17 +33,17 @@ const SecondStep = () => {
 
 			<div>
 				<div className="pb-8 mt-8">
-					<FormField name="name" className="font-normal">
+					<FormField name="meta.displayName" className="font-normal">
 						<FormLabel>{t("TRANSACTION.NAME")}</FormLabel>
 						<Input type="text" ref={register} />
 					</FormField>
 
-					<FormField name="description" className="mt-8 font-normal">
+					<FormField name="meta.description" className="mt-8 font-normal">
 						<FormLabel>{t("TRANSACTION.DESCRIPTION")}</FormLabel>
 						<TextArea ref={register} />
 					</FormField>
 
-					<FormField name="website" className="mt-8 font-normal">
+					<FormField name="meta.website" className="mt-8 font-normal">
 						<FormLabel>{t("TRANSACTION.WEBSITE")}</FormLabel>
 						<Input type="website" ref={register} />
 					</FormField>
@@ -53,6 +57,7 @@ const SecondStep = () => {
 							{ label: "BitBucket", value: "bitbucket" },
 							{ label: "GitHub", value: "github" },
 							{ label: "GitLab", value: "gitlab" },
+							{ label: "NPM", value: "npm" },
 						]}
 						typeName="repository"
 					/>
@@ -197,7 +202,7 @@ const ThirdStep = () => {
 	);
 };
 
-const component = ({ activeTab }: { activeTab: number }) => (
+const component = ({ activeTab }: RegistrationComponent) => (
 	<Tabs activeId={activeTab}>
 		<TabPanel tabId={2}>
 			<SecondStep />
@@ -208,7 +213,7 @@ const component = ({ activeTab }: { activeTab: number }) => (
 	</Tabs>
 );
 
-const transactionDetails = ({ translations }: { translations: any }) => (
+const transactionDetails = ({ translations }: RegistrationTransactionDetailsOptions) => (
 	<>
 		<TransactionDetail
 			label={translations("TRANSACTION.TRANSACTION_TYPE")}
@@ -240,7 +245,7 @@ export const BusinessRegistrationForm: RegistrationForm = {
 	formFields: [],
 
 	// eslint-disable-next-line @typescript-eslint/require-await
-	signTransaction: async ({ handleNext }: any) => {
+	signTransaction: async ({ handleNext }) => {
 		handleNext();
 	},
 };
