@@ -9,6 +9,7 @@ import { Label } from "app/components/Label";
 import { TabPanel, Tabs } from "app/components/Tabs";
 import { TextArea } from "app/components/TextArea";
 import { TransactionDetail } from "app/components/TransactionDetail";
+import { EntitySourceControl } from "data/aip36";
 import { InputFee } from "domains/transaction/components/InputFee";
 import { LinkCollection } from "domains/transaction/components/LinkCollection";
 import { LinkList } from "domains/transaction/components/LinkList";
@@ -53,12 +54,7 @@ const SecondStep = () => {
 					<LinkCollection
 						title={t("TRANSACTION.REPOSITORIES.TITLE")}
 						description={t("TRANSACTION.REPOSITORIES.DESCRIPTION")}
-						types={[
-							{ label: "BitBucket", value: "bitbucket" },
-							{ label: "GitHub", value: "github" },
-							{ label: "GitLab", value: "gitlab" },
-							{ label: "NPM", value: "npm" },
-						]}
+						types={EntitySourceControl.map((source) => ({ label: source.name, value: source.id }))}
 						typeName="repository"
 					/>
 				</TransactionDetail>

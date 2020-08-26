@@ -33,8 +33,8 @@ describe("LinkCollection", () => {
 		expect(asFragment()).toMatchSnapshot();
 	});
 
-	it("should toggle open/close of link collection", () => {
-		const { asFragment, getByTestId } = render(
+	it.only("should toggle open/close of link collection", () => {
+		const { asFragment, getByTestId, debug } = render(
 			<LinkCollection
 				title="Social Media"
 				description="Tell people more about yourself through social media"
@@ -43,15 +43,15 @@ describe("LinkCollection", () => {
 			/>,
 		);
 
-		expect(getByTestId("LinkCollection")).not.toHaveTextContent("Add social media");
+		expect(getByTestId("LinkCollection__collapse")).toHaveAttribute("aria-hidden", "true");
 
 		fireEvent.click(getByTestId("LinkCollection__header"));
 
-		expect(getByTestId("LinkCollection")).toHaveTextContent("Add social media");
+		expect(getByTestId("LinkCollection__collapse")).toHaveAttribute("aria-hidden", "false");
 
 		fireEvent.click(getByTestId("LinkCollection__header"));
 
-		expect(getByTestId("LinkCollection")).not.toHaveTextContent("Add social media");
+		expect(getByTestId("LinkCollection__collapse")).toHaveAttribute("aria-hidden", "true");
 
 		expect(asFragment()).toMatchSnapshot();
 	});

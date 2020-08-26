@@ -5,7 +5,7 @@ exports[`Collapse should render 1`] = `
   <div
     aria-hidden="true"
     data-testid="Collapse"
-    style="height: 0px; opacity: 0; overflow: hidden;"
+    style="height: 0px; max-height: auto; opacity: 0; overflow: hidden;"
   >
     Test
   </div>

@@ -208,6 +208,7 @@ describe("BusinessRegistrationForm", () => {
 	it("should sign transaction", async () => {
 		const handleNext = jest.fn();
 
+		// @ts-ignore
 		await BusinessRegistrationForm.signTransaction({
 			handleNext,
 		});
@@ -254,7 +255,7 @@ describe("BusinessRegistrationForm", () => {
 
 	it("should output transaction details", () => {
 		const translations = jest.fn((translation) => translation);
-
+		// @ts-ignore
 		const { container } = render(<BusinessRegistrationForm.transactionDetails translations={translations} />);
 
 		expect(container).toHaveTextContent("Business Registration");

@@ -56,7 +56,7 @@ exports[`WalletBottomSheetMenu should render 1`] = `
     <div
       aria-hidden="true"
       data-testid="Collapse"
-      style="height: 0px; opacity: 0; overflow: hidden;"
+      style="height: 0px; max-height: 20rem; opacity: 0; overflow: hidden;"
     >
       <div
         class="py-8 bg-theme-background"

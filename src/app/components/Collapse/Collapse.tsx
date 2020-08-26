@@ -23,6 +23,7 @@ export const Collapse = ({ isOpen, children, minHeight, maxHeight, duration, ...
 		},
 		hidden: {
 			height: minHeight,
+			maxHeight: maxHeight,
 			opacity: 0,
 			overflow: "hidden",
 			transition: {

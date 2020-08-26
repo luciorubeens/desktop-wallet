@@ -1,4 +1,5 @@
 import { Button } from "app/components/Button";
+import { Collapse } from "app/components/Collapse";
 import { FormLabel } from "app/components/Form";
 import { Icon } from "app/components/Icon";
 import { Input, InputGroup } from "app/components/Input";
@@ -34,6 +35,23 @@ const Wrapper = styled.div`
 		padding-bottom: 0;
 	}
 `;
+
+const CollapseToggleIcon = ({ isExpanded }: { isExpanded: boolean }) =>
+	isExpanded ? (
+		<Icon
+			name="ChevronUp"
+			width={10}
+			height={10}
+			className="flex items-center justify-center w-5 h-5 text-white rounded-full bg-theme-primary"
+		/>
+	) : (
+		<Icon
+			name="ChevronDown"
+			width={10}
+			height={10}
+			className="flex items-center justify-center w-5 h-5 rounded-full text-theme-primary bg-theme-primary-contrast"
+		/>
+	);
 
 export const LinkCollection = ({
 	data,
@@ -92,28 +110,13 @@ export const LinkCollection = ({
 				<span className="text-lg font-semibold">{title}</span>
 
 				<div>
-					{isExpanded && (
-						<Icon
-							name="ChevronUp"
-							width={10}
-							height={10}
-							className="flex items-center justify-center w-5 h-5 text-white rounded-full bg-theme-primary"
-						/>
-					)}
-					{!isExpanded && (
-						<Icon
-							name="ChevronDown"
-							width={10}
-							height={10}
-							className="flex items-center justify-center w-5 h-5 rounded-full text-theme-primary bg-theme-primary-contrast"
-						/>
-					)}
+					<CollapseToggleIcon isExpanded={isExpanded} />
 				</div>
 			</div>
 
 			<div className="mt-2 text-theme-neutral-dark">{description}</div>
 
-			{isExpanded && (
+			<Collapse data-testid="LinkCollection__collapse" isOpen={isExpanded}>
 				<div className="mt-4">
 					<div>
 						<div className="flex space-x-2">
@@ -193,7 +196,7 @@ export const LinkCollection = ({
 						)}
 					</Table>
 				</div>
-			)}
+			</Collapse>
 		</Wrapper>
 	);
 };

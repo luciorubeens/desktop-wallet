@@ -3031,7 +3031,7 @@ exports[`Registration should select registration type & show form 1`] = `
                           class="flex rounded-lg overflow-hidden bg-theme-warning"
                         >
                           <div
-                            class="sc-fznxKY hnCPDr flex items-center justify-center text-theme-warning bg-theme-warning-200"
+                            class="sc-fznMAR bUWrer flex items-center justify-center text-theme-warning bg-theme-warning-200"
                           >
                             <div
                               class="sc-AxiKw iRsrJT"
@@ -3044,7 +3044,7 @@ exports[`Registration should select registration type & show form 1`] = `
                             </div>
                           </div>
                           <div
-                            class="sc-fzpmMD coMwhP flex-1 bg-theme-warning-100"
+                            class="sc-fznxKY iCykvb flex-1 bg-theme-warning-100"
                           >
                             Keep in mind that you cannot change the name of your delegate after the registration has been registered on the blockchain.
                           </div>
@@ -3552,7 +3552,7 @@ exports[`Registration should should go back and forth & correctly register field
                           class="flex rounded-lg overflow-hidden bg-theme-warning"
                         >
                           <div
-                            class="sc-fznxKY hnCPDr flex items-center justify-center text-theme-warning bg-theme-warning-200"
+                            class="sc-fznMAR bUWrer flex items-center justify-center text-theme-warning bg-theme-warning-200"
                           >
                             <div
                               class="sc-AxiKw iRsrJT"
@@ -3565,7 +3565,7 @@ exports[`Registration should should go back and forth & correctly register field
                             </div>
                           </div>
                           <div
-                            class="sc-fzpmMD coMwhP flex-1 bg-theme-warning-100"
+                            class="sc-fznxKY iCykvb flex-1 bg-theme-warning-100"
                           >
                             Keep in mind that you cannot change the name of your delegate after the registration has been registered on the blockchain.
                           </div>
@@ -3897,7 +3897,7 @@ exports[`Registration should show ledger confirmation & not show second mnemonic
         class="inline-flex items-center justify-center w-full mt-8 space-x-3"
       >
         <div
-          class="sc-fznMAR fuQGJh"
+          class="sc-fznWOq erHNdO"
           color="primary"
         />
         <span
