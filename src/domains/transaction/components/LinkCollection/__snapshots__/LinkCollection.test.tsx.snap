@@ -1,279 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LinkCollection should add and remove links 1`] = `
+exports[`LinkCollection should render with fields 1`] = `
 <DocumentFragment>
   <div
-    class="sc-fzokOt fXVdof flex flex-col font-normal"
-    data-testid="LinkCollection"
+    data-testid="LinkCollectionContainer"
   >
     <div
       class="flex items-center justify-between cursor-pointer"
-      data-testid="LinkCollection__header"
+      data-testid="LinkCollectionContainer__header"
     >
       <span
         class="text-lg font-semibold"
       >
         Social Media
       </span>
-      <div>
-        <div
-          class="sc-AxirZ fttODj flex items-center justify-center w-5 h-5 text-white rounded-full bg-theme-primary"
-          height="10"
-          width="10"
-        >
-          <svg>
-            chevron-up.svg
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div
-      class="mt-2 text-theme-neutral-dark"
-    >
-      Tell people more about yourself through social media
-    </div>
-    <div
-      aria-hidden="false"
-      data-testid="LinkCollection__collapse"
-      style="height: 0px; opacity: 0; overflow: auto; max-height: auto;"
-    >
       <div
-        class="mt-4"
+        data-testid="LinkCollectionContainer__collapse-toggle"
       >
-        <div>
-          <div
-            class="flex space-x-2"
-          >
-            <div
-              class="flex flex-col w-2/5"
-            >
-              <div
-                class="w-full"
-              >
-                <label
-                  class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
-                  data-testid="FormLabel"
-                >
-                  Add media
-                  <div
-                    class="w-1 h-1 mt-1 ml-1 rounded-full bg-theme-danger-400"
-                    data-testid="FormLabel__required"
-                  />
-                </label>
-              </div>
-              <div
-                class="sc-AxmLO kuiknc flex flex-1"
-              >
-                <div
-                  class="relative w-full"
-                >
-                  <input
-                    class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 sr-only"
-                    data-testid="select-list__input"
-                    readonly=""
-                    type="text"
-                    value="twitter"
-                  />
-                  <div
-                    class="relative w-full cursor-pointer"
-                  >
-                    <div>
-                      <button
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-labelledby="downshift-4-label downshift-4-toggle-button"
-                        class="sc-fznyAO clcORT  is-selected "
-                        data-testid="select-list__toggle-button"
-                        id="downshift-4-toggle-button"
-                        type="button"
-                      >
-                        Twitter
-                      </button>
-                      <ul
-                        aria-labelledby="downshift-4-label"
-                        class="sc-fznKkj iVkfZr"
-                        id="downshift-4-menu"
-                        role="listbox"
-                        tabindex="-1"
-                      />
-                    </div>
-                    <div
-                      class="sc-AxgMl sc-Axmtr hWILTO w-10 pointer-events-none text-theme-neutral"
-                    >
-                      <div
-                        class="sc-AxirZ ZmpmT"
-                        height="8"
-                        width="8"
-                      >
-                        <svg>
-                          arrowdown.svg
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="flex-1"
-            >
-              <div
-                class="mb-2"
-              >
-                <label
-                  class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
-                  data-testid="FormLabel"
-                >
-                  Link
-                  <div
-                    class="w-1 h-1 mt-1 ml-1 rounded-full bg-theme-danger-400"
-                    data-testid="FormLabel__required"
-                  />
-                </label>
-              </div>
-              <div
-                class="sc-AxmLO kuiknc"
-              >
-                <input
-                  class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 pr-20"
-                  data-testid="LinkCollection__input-link"
-                  maxlength="255"
-                  placeholder=" "
-                  type="text"
-                />
-              </div>
-            </div>
-          </div>
-          <button
-            class="sc-AxjAm cyswVS w-full mt-2"
-            color="primary"
-            data-testid="LinkCollection__add-link"
-            type="button"
-          >
-            Add Link
-          </button>
-        </div>
         <div
-          class="mt-8 mb-2 text-sm text-theme-neutral-dark"
-        >
-          Your media
-        </div>
-        <div
-          class="sc-fznZeY gcZndM"
-          role="table"
-        >
-          <table
-            class="table-auto"
-          >
-            <thead>
-              <tr
-                role="row"
-              >
-                <th
-                  class="text-sm text-left select-none text-theme-neutral"
-                  colspan="1"
-                  data-testid="table__th--0"
-                  role="columnheader"
-                  style="cursor: pointer;"
-                  title="Toggle SortBy"
-                >
-                  <div
-                    class="flex flex-inline align-top "
-                  >
-                    <div>
-                      Name
-                    </div>
-                    <div
-                      class="flex items-center ml-2 text-theme-color-neutral"
-                      data-testid="table__Sort"
-                    >
-                      <div
-                        class="sc-AxirZ jMwzyA"
-                        height="12"
-                        width="15"
-                      >
-                        <svg>
-                          sort.svg
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </th>
-                <th
-                  class="text-sm text-left select-none text-theme-neutral"
-                  colspan="1"
-                  data-testid="table__th--1"
-                  role="columnheader"
-                  style="cursor: pointer;"
-                  title="Toggle SortBy"
-                >
-                  <div
-                    class="flex flex-inline align-top "
-                  >
-                    <div>
-                      Link
-                    </div>
-                    <div
-                      class="flex items-center ml-2 text-theme-color-neutral"
-                      data-testid="table__Sort"
-                    >
-                      <div
-                        class="sc-AxirZ jMwzyA"
-                        height="12"
-                        width="15"
-                      >
-                        <svg>
-                          sort.svg
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </th>
-                <th
-                  class="text-sm text-left select-none text-theme-neutral"
-                  colspan="1"
-                  data-testid="table__th--2"
-                  role="columnheader"
-                >
-                  <div
-                    class="flex flex-inline align-top "
-                  >
-                    <div>
-                       
-                    </div>
-                  </div>
-                </th>
-              </tr>
-            </thead>
-            <tbody
-              role="rowgroup"
-            />
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`LinkCollection should render 1`] = `
-<DocumentFragment>
-  <div
-    class="sc-fzokOt fXVdof flex flex-col font-normal"
-    data-testid="LinkCollection"
-  >
-    <div
-      class="flex items-center justify-between cursor-pointer"
-      data-testid="LinkCollection__header"
-    >
-      <span
-        class="text-lg font-semibold"
-      >
-        Social Media
-      </span>
-      <div>
-        <div
-          class="sc-AxirZ fttODj flex items-center justify-center w-5 h-5 rounded-full text-theme-primary bg-theme-primary-contrast"
+          class="sc-AxjAm iepfoc flex items-center justify-center w-5 h-5 rounded-full text-theme-primary bg-theme-primary-contrast"
           height="10"
           width="10"
         >
@@ -283,594 +28,313 @@ exports[`LinkCollection should render 1`] = `
         </div>
       </div>
     </div>
-    <div
+    <p
       class="mt-2 text-theme-neutral-dark"
+      data-testid="LinkCollectionContainer__description"
     >
       Tell people more about yourself through social media
-    </div>
+    </p>
     <div
       aria-hidden="true"
-      data-testid="LinkCollection__collapse"
-      style="height: 0px; opacity: 0; overflow: hidden;"
+      data-testid="LinkCollectionContainer__collapse"
+      style="height: 0px; max-height: auto; opacity: 0; overflow: hidden;"
     >
       <div
         class="mt-4"
       >
-        <div>
-          <div
-            class="flex space-x-2"
+        <form
+          class="grid col-gap-2 row-gap-4"
+          data-testid="LinkCollectionForm"
+          style="grid-template-columns: 40% 60%;"
+        >
+          <fieldset
+            class="sc-AxhCb ckQmOL flex flex-col space-y-2"
           >
-            <div
-              class="flex flex-col w-2/5"
+            <label
+              class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
+              data-testid="FormLabel"
+              for="type"
             >
+              Add media
               <div
-                class="w-full"
+                class="w-1 h-1 mt-1 ml-1 rounded-full bg-theme-danger-400"
+                data-testid="FormLabel__required"
+              />
+            </label>
+            <div
+              class="relative w-full"
+            >
+              <input
+                class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 sr-only"
+                data-testid="select-list__input"
+                name="type"
+                readonly=""
+                type="text"
+                value=""
+              />
+              <div
+                class="relative w-full cursor-pointer"
               >
-                <label
-                  class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
-                  data-testid="FormLabel"
-                >
-                  Add media
-                  <div
-                    class="w-1 h-1 mt-1 ml-1 rounded-full bg-theme-danger-400"
-                    data-testid="FormLabel__required"
+                <div>
+                  <button
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-labelledby="downshift-1-label downshift-1-toggle-button"
+                    class="sc-fzplWN jAabRP   "
+                    data-testid="select-list__toggle-button"
+                    id="downshift-1-toggle-button"
+                    type="button"
                   />
-                </label>
-              </div>
-              <div
-                class="sc-AxmLO kuiknc flex flex-1"
-              >
+                  <ul
+                    aria-labelledby="downshift-1-label"
+                    class="sc-fznyAO dPDaFu"
+                    id="downshift-1-menu"
+                    role="listbox"
+                    tabindex="-1"
+                  />
+                </div>
                 <div
-                  class="relative w-full"
+                  class="sc-AxgMl sc-Axmtr hWILTO w-10 pointer-events-none text-theme-neutral"
                 >
-                  <input
-                    class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 sr-only"
-                    data-testid="select-list__input"
-                    readonly=""
-                    type="text"
-                    value=""
-                  />
                   <div
-                    class="relative w-full cursor-pointer"
+                    class="sc-AxjAm dKDmBo"
+                    height="8"
+                    width="8"
                   >
-                    <div>
-                      <button
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-labelledby="downshift-0-label downshift-0-toggle-button"
-                        class="sc-fznyAO clcORT   "
-                        data-testid="select-list__toggle-button"
-                        id="downshift-0-toggle-button"
-                        type="button"
-                      />
-                      <ul
-                        aria-labelledby="downshift-0-label"
-                        class="sc-fznKkj iVkfZr"
-                        id="downshift-0-menu"
-                        role="listbox"
-                        tabindex="-1"
-                      />
-                    </div>
-                    <div
-                      class="sc-AxgMl sc-Axmtr hWILTO w-10 pointer-events-none text-theme-neutral"
-                    >
-                      <div
-                        class="sc-AxirZ ZmpmT"
-                        height="8"
-                        width="8"
-                      >
-                        <svg>
-                          arrowdown.svg
-                        </svg>
-                      </div>
-                    </div>
+                    <svg>
+                      arrowdown.svg
+                    </svg>
                   </div>
                 </div>
               </div>
             </div>
-            <div
-              class="flex-1"
+          </fieldset>
+          <fieldset
+            class="sc-AxhCb ckQmOL flex flex-col space-y-2"
+          >
+            <label
+              class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
+              data-testid="FormLabel"
+              for="value"
             >
+              Link
               <div
-                class="mb-2"
-              >
-                <label
-                  class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
-                  data-testid="FormLabel"
-                >
-                  Link
-                  <div
-                    class="w-1 h-1 mt-1 ml-1 rounded-full bg-theme-danger-400"
-                    data-testid="FormLabel__required"
-                  />
-                </label>
-              </div>
-              <div
-                class="sc-AxmLO kuiknc"
-              >
-                <input
-                  class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 pr-20"
-                  data-testid="LinkCollection__input-link"
-                  maxlength="255"
-                  placeholder=" "
-                  type="text"
-                />
-              </div>
-            </div>
-          </div>
-          <button
-            class="sc-AxjAm cyswVS w-full mt-2"
-            color="primary"
-            data-testid="LinkCollection__add-link"
-            disabled=""
-            type="button"
-          >
-            Add Link
-          </button>
-        </div>
-        <div
-          class="mt-8 mb-2 text-sm text-theme-neutral-dark"
-        >
-          Your media
-        </div>
-        <div
-          class="sc-fznZeY gcZndM"
-          role="table"
-        >
-          <table
-            class="table-auto"
-          >
-            <thead>
-              <tr
-                role="row"
-              >
-                <th
-                  class="text-sm text-left select-none text-theme-neutral"
-                  colspan="1"
-                  data-testid="table__th--0"
-                  role="columnheader"
-                  style="cursor: pointer;"
-                  title="Toggle SortBy"
-                >
-                  <div
-                    class="flex flex-inline align-top "
-                  >
-                    <div>
-                      Name
-                    </div>
-                    <div
-                      class="flex items-center ml-2 text-theme-color-neutral"
-                      data-testid="table__Sort"
-                    >
-                      <div
-                        class="sc-AxirZ jMwzyA"
-                        height="12"
-                        width="15"
-                      >
-                        <svg>
-                          sort.svg
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </th>
-                <th
-                  class="text-sm text-left select-none text-theme-neutral"
-                  colspan="1"
-                  data-testid="table__th--1"
-                  role="columnheader"
-                  style="cursor: pointer;"
-                  title="Toggle SortBy"
-                >
-                  <div
-                    class="flex flex-inline align-top "
-                  >
-                    <div>
-                      Link
-                    </div>
-                    <div
-                      class="flex items-center ml-2 text-theme-color-neutral"
-                      data-testid="table__Sort"
-                    >
-                      <div
-                        class="sc-AxirZ jMwzyA"
-                        height="12"
-                        width="15"
-                      >
-                        <svg>
-                          sort.svg
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </th>
-                <th
-                  class="text-sm text-left select-none text-theme-neutral"
-                  colspan="1"
-                  data-testid="table__th--2"
-                  role="columnheader"
-                >
-                  <div
-                    class="flex flex-inline align-top "
-                  >
-                    <div>
-                       
-                    </div>
-                  </div>
-                </th>
-              </tr>
-            </thead>
-            <tbody
-              role="rowgroup"
+                class="w-1 h-1 mt-1 ml-1 rounded-full bg-theme-danger-400"
+                data-testid="FormLabel__required"
+              />
+            </label>
+            <input
+              class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 "
+              data-testid="Input"
+              name="value"
             />
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`LinkCollection should select a specific link type 1`] = `
-<DocumentFragment>
-  <div
-    class="sc-fzokOt fXVdof flex flex-col font-normal"
-    data-testid="LinkCollection"
-  >
-    <div
-      class="flex items-center justify-between cursor-pointer"
-      data-testid="LinkCollection__header"
-    >
-      <span
-        class="text-lg font-semibold"
-      >
-        Social Media
-      </span>
-      <div>
-        <div
-          class="sc-AxirZ fttODj flex items-center justify-center w-5 h-5 text-white rounded-full bg-theme-primary"
-          height="10"
-          width="10"
-        >
-          <svg>
-            chevron-up.svg
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div
-      class="mt-2 text-theme-neutral-dark"
-    >
-      Tell people more about yourself through social media
-    </div>
-    <div
-      aria-hidden="false"
-      data-testid="LinkCollection__collapse"
-      style="height: 0px; opacity: 0; overflow: auto; max-height: auto;"
-    >
-      <div
-        class="mt-4"
-      >
-        <div>
-          <div
-            class="flex space-x-2"
-          >
-            <div
-              class="flex flex-col w-2/5"
-            >
-              <div
-                class="w-full"
-              >
-                <label
-                  class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
-                  data-testid="FormLabel"
-                >
-                  Add media
-                  <div
-                    class="w-1 h-1 mt-1 ml-1 rounded-full bg-theme-danger-400"
-                    data-testid="FormLabel__required"
-                  />
-                </label>
-              </div>
-              <div
-                class="sc-AxmLO kuiknc flex flex-1"
-              >
-                <div
-                  class="relative w-full"
-                >
-                  <input
-                    class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 sr-only"
-                    data-testid="select-list__input"
-                    readonly=""
-                    type="text"
-                    value=""
-                  />
-                  <div
-                    class="relative w-full cursor-pointer"
-                  >
-                    <div>
-                      <button
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-labelledby="downshift-12-label downshift-12-toggle-button"
-                        class="sc-fznyAO clcORT   "
-                        data-testid="select-list__toggle-button"
-                        id="downshift-12-toggle-button"
-                        type="button"
-                      />
-                      <ul
-                        aria-labelledby="downshift-12-label"
-                        class="sc-fznKkj iVkfZr"
-                        id="downshift-12-menu"
-                        role="listbox"
-                        tabindex="-1"
-                      />
-                    </div>
-                    <div
-                      class="sc-AxgMl sc-Axmtr hWILTO w-10 pointer-events-none text-theme-neutral"
-                    >
-                      <div
-                        class="sc-AxirZ ZmpmT"
-                        height="8"
-                        width="8"
-                      >
-                        <svg>
-                          arrowdown.svg
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="flex-1"
-            >
-              <div
-                class="mb-2"
-              >
-                <label
-                  class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
-                  data-testid="FormLabel"
-                >
-                  Link
-                  <div
-                    class="w-1 h-1 mt-1 ml-1 rounded-full bg-theme-danger-400"
-                    data-testid="FormLabel__required"
-                  />
-                </label>
-              </div>
-              <div
-                class="sc-AxmLO kuiknc"
-              >
-                <input
-                  class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 pr-20"
-                  data-testid="LinkCollection__input-link"
-                  maxlength="255"
-                  placeholder=" "
-                  type="text"
-                />
-              </div>
-            </div>
-          </div>
+          </fieldset>
           <button
-            class="sc-AxjAm cyswVS w-full mt-2"
+            class="sc-AxiKw jBPYDN col-span-2"
             color="primary"
-            data-testid="LinkCollection__add-link"
-            disabled=""
-            type="button"
+            type="submit"
           >
             Add Link
           </button>
-        </div>
-        <div
-          class="mt-8 mb-2 text-sm text-theme-neutral-dark"
+        </form>
+        <p
+          class="mt-8 mb-2 text-sm text-theme-neutral-dark font-semibold"
+          data-testid="LinkCollection__label"
         >
           Your media
-        </div>
+        </p>
         <div
-          class="sc-fznZeY gcZndM"
-          role="table"
+          data-testid="LinkCollectionTable"
         >
-          <table
-            class="table-auto"
+          <div
+            class="sc-fznZeY gcZndM"
+            role="table"
           >
-            <thead>
-              <tr
-                role="row"
-              >
-                <th
-                  class="text-sm text-left select-none text-theme-neutral"
-                  colspan="1"
-                  data-testid="table__th--0"
-                  role="columnheader"
-                  style="cursor: pointer;"
-                  title="Toggle SortBy"
-                >
-                  <div
-                    class="flex flex-inline align-top "
-                  >
-                    <div>
-                      Primary
-                    </div>
-                    <div
-                      class="flex items-center ml-2 text-theme-color-neutral"
-                      data-testid="table__Sort"
-                    >
-                      <div
-                        class="sc-AxirZ jMwzyA"
-                        height="12"
-                        width="15"
-                      >
-                        <svg>
-                          sort.svg
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </th>
-                <th
-                  class="text-sm text-left select-none text-theme-neutral"
-                  colspan="1"
-                  data-testid="table__th--1"
-                  role="columnheader"
-                  style="cursor: pointer;"
-                  title="Toggle SortBy"
-                >
-                  <div
-                    class="flex flex-inline align-top "
-                  >
-                    <div>
-                      Name
-                    </div>
-                    <div
-                      class="flex items-center ml-2 text-theme-color-neutral"
-                      data-testid="table__Sort"
-                    >
-                      <div
-                        class="sc-AxirZ jMwzyA"
-                        height="12"
-                        width="15"
-                      >
-                        <svg>
-                          sort.svg
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </th>
-                <th
-                  class="text-sm text-left select-none text-theme-neutral"
-                  colspan="1"
-                  data-testid="table__th--2"
-                  role="columnheader"
-                  style="cursor: pointer;"
-                  title="Toggle SortBy"
-                >
-                  <div
-                    class="flex flex-inline align-top "
-                  >
-                    <div>
-                      Link
-                    </div>
-                    <div
-                      class="flex items-center ml-2 text-theme-color-neutral"
-                      data-testid="table__Sort"
-                    >
-                      <div
-                        class="sc-AxirZ jMwzyA"
-                        height="12"
-                        width="15"
-                      >
-                        <svg>
-                          sort.svg
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </th>
-                <th
-                  class="text-sm text-left select-none text-theme-neutral"
-                  colspan="1"
-                  data-testid="table__th--3"
-                  role="columnheader"
-                >
-                  <div
-                    class="flex flex-inline align-top "
-                  >
-                    <div>
-                       
-                    </div>
-                  </div>
-                </th>
-              </tr>
-            </thead>
-            <tbody
-              role="rowgroup"
+            <table
+              class="table-auto"
             >
-              <tr
-                class="font-semibold border-b border-theme-neutral-200"
-              >
-                <td
-                  class="w-16 text-center"
+              <thead>
+                <tr
+                  role="row"
                 >
-                  <input
-                    class="sc-fzplWN fsiQgy"
-                    color="success"
-                    data-testid="LinkCollection__selected"
-                    type="radio"
-                  />
-                </td>
-                <td
-                  class="w-40 pb-6 pt-2"
-                >
-                  Twitter
-                </td>
-                <td
-                  class="pb-6 pt-2"
-                >
-                  testing link
-                </td>
-                <td
-                  class="w-16 text-right pb-4"
-                >
-                  <button
-                    class="sc-AxjAm bBBiEi"
-                    color="primary"
-                    data-testid="LinkCollection__remove-link"
-                    type="button"
+                  <th
+                    class="text-sm text-left select-none text-theme-neutral"
+                    colspan="1"
+                    data-testid="table__th--0"
+                    role="columnheader"
+                    style="cursor: pointer;"
+                    title="Toggle SortBy"
                   >
                     <div
-                      class="sc-AxirZ iQaTP"
-                      height="1em"
-                      width="1em"
+                      class="flex flex-inline align-top "
                     >
-                      <svg>
-                        trash.svg
-                      </svg>
+                      <div>
+                        Name
+                      </div>
+                      <div
+                        class="flex items-center ml-2 text-theme-color-neutral"
+                        data-testid="table__Sort"
+                      >
+                        <div
+                          class="sc-AxjAm hdgaLj"
+                          height="12"
+                          width="15"
+                        >
+                          <svg>
+                            sort.svg
+                          </svg>
+                        </div>
+                      </div>
                     </div>
-                  </button>
-                </td>
-              </tr>
-              <tr
-                class="font-semibold border-b border-theme-neutral-200"
-              >
-                <td
-                  class="w-16 text-center"
-                />
-                <td
-                  class="w-40 py-6"
-                >
-                  Facebook
-                </td>
-                <td
-                  class="py-6"
-                >
-                  testing link 2
-                </td>
-                <td
-                  class="w-16 text-right false"
-                >
-                  <button
-                    class="sc-AxjAm bBBiEi"
-                    color="primary"
-                    data-testid="LinkCollection__remove-link"
-                    type="button"
+                  </th>
+                  <th
+                    class="text-sm text-left select-none text-theme-neutral"
+                    colspan="1"
+                    data-testid="table__th--1"
+                    role="columnheader"
+                    style="cursor: pointer;"
+                    title="Toggle SortBy"
                   >
                     <div
-                      class="sc-AxirZ iQaTP"
-                      height="1em"
-                      width="1em"
+                      class="flex flex-inline align-top "
                     >
-                      <svg>
-                        trash.svg
-                      </svg>
+                      <div>
+                        Link
+                      </div>
+                      <div
+                        class="flex items-center ml-2 text-theme-color-neutral"
+                        data-testid="table__Sort"
+                      >
+                        <div
+                          class="sc-AxjAm hdgaLj"
+                          height="12"
+                          width="15"
+                        >
+                          <svg>
+                            sort.svg
+                          </svg>
+                        </div>
+                      </div>
                     </div>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  </th>
+                  <th
+                    class="text-sm text-left select-none text-theme-neutral"
+                    colspan="1"
+                    data-testid="table__th--2"
+                    role="columnheader"
+                  >
+                    <div
+                      class="flex flex-inline align-top "
+                    >
+                      <div>
+                         
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                role="rowgroup"
+              >
+                <tr
+                  class="font-semibold border-b border-theme-neutral-200"
+                  data-testid="LinkCollectionTable__row"
+                >
+                  <td
+                    class="w-40 pb-6 pt-2"
+                  >
+                    <input
+                      class="hidden"
+                      name="socialMedia[0].type"
+                      readonly=""
+                      value="facebook"
+                    />
+                    <span>
+                      Facebook
+                    </span>
+                  </td>
+                  <td
+                    class="pb-6 pt-2"
+                  >
+                    <input
+                      class="focus:outline-none"
+                      name="socialMedia[0].value"
+                      readonly=""
+                      value="https://facebook.com"
+                    />
+                  </td>
+                  <td
+                    class="w-16 text-right pb-4"
+                  >
+                    <button
+                      class="sc-AxiKw jEmgKd"
+                      color="primary"
+                      data-testid="LinkCollectionTable__remove-link"
+                      type="button"
+                    >
+                      <div
+                        class="sc-AxjAm cpczEI"
+                        height="1em"
+                        width="1em"
+                      >
+                        <svg>
+                          trash.svg
+                        </svg>
+                      </div>
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="font-semibold border-b border-theme-neutral-200"
+                  data-testid="LinkCollectionTable__row"
+                >
+                  <td
+                    class="w-40 py-6"
+                  >
+                    <input
+                      class="hidden"
+                      name="socialMedia[1].type"
+                      readonly=""
+                      value="instagram"
+                    />
+                    <span>
+                      TRANSACTION.LINK_TYPES.INSTAGRAM
+                    </span>
+                  </td>
+                  <td
+                    class="py-6"
+                  >
+                    <input
+                      class="focus:outline-none"
+                      name="socialMedia[1].value"
+                      readonly=""
+                      value="https://instagram.com"
+                    />
+                  </td>
+                  <td
+                    class="w-16 text-right false"
+                  >
+                    <button
+                      class="sc-AxiKw jEmgKd"
+                      color="primary"
+                      data-testid="LinkCollectionTable__remove-link"
+                      type="button"
+                    >
+                      <div
+                        class="sc-AxjAm cpczEI"
+                        height="1em"
+                        width="1em"
+                      >
+                        <svg>
+                          trash.svg
+                        </svg>
+                      </div>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -878,24 +342,25 @@ exports[`LinkCollection should select a specific link type 1`] = `
 </DocumentFragment>
 `;
 
-exports[`LinkCollection should toggle open/close of link collection 1`] = `
+exports[`LinkCollection should render without fields 1`] = `
 <DocumentFragment>
   <div
-    class="sc-fzokOt fXVdof flex flex-col font-normal"
-    data-testid="LinkCollection"
+    data-testid="LinkCollectionContainer"
   >
     <div
       class="flex items-center justify-between cursor-pointer"
-      data-testid="LinkCollection__header"
+      data-testid="LinkCollectionContainer__header"
     >
       <span
         class="text-lg font-semibold"
       >
         Social Media
       </span>
-      <div>
+      <div
+        data-testid="LinkCollectionContainer__collapse-toggle"
+      >
         <div
-          class="sc-AxirZ fttODj flex items-center justify-center w-5 h-5 rounded-full text-theme-primary bg-theme-primary-contrast"
+          class="sc-AxjAm iepfoc flex items-center justify-center w-5 h-5 rounded-full text-theme-primary bg-theme-primary-contrast"
           height="10"
           width="10"
         >
@@ -905,228 +370,115 @@ exports[`LinkCollection should toggle open/close of link collection 1`] = `
         </div>
       </div>
     </div>
-    <div
+    <p
       class="mt-2 text-theme-neutral-dark"
+      data-testid="LinkCollectionContainer__description"
     >
       Tell people more about yourself through social media
-    </div>
+    </p>
     <div
       aria-hidden="true"
-      data-testid="LinkCollection__collapse"
-      style="height: 0px; max-height: auto; opacity: 0; overflow: auto;"
+      data-testid="LinkCollectionContainer__collapse"
+      style="height: 0px; max-height: auto; opacity: 0; overflow: hidden;"
     >
       <div
         class="mt-4"
       >
-        <div>
-          <div
-            class="flex space-x-2"
+        <form
+          class="grid col-gap-2 row-gap-4"
+          data-testid="LinkCollectionForm"
+          style="grid-template-columns: 40% 60%;"
+        >
+          <fieldset
+            class="sc-AxhCb ckQmOL flex flex-col space-y-2"
           >
-            <div
-              class="flex flex-col w-2/5"
+            <label
+              class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
+              data-testid="FormLabel"
+              for="type"
             >
+              Add media
               <div
-                class="w-full"
+                class="w-1 h-1 mt-1 ml-1 rounded-full bg-theme-danger-400"
+                data-testid="FormLabel__required"
+              />
+            </label>
+            <div
+              class="relative w-full"
+            >
+              <input
+                class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 sr-only"
+                data-testid="select-list__input"
+                name="type"
+                readonly=""
+                type="text"
+                value=""
+              />
+              <div
+                class="relative w-full cursor-pointer"
               >
-                <label
-                  class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
-                  data-testid="FormLabel"
-                >
-                  Add social media
-                  <div
-                    class="w-1 h-1 mt-1 ml-1 rounded-full bg-theme-danger-400"
-                    data-testid="FormLabel__required"
+                <div>
+                  <button
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-labelledby="downshift-0-label downshift-0-toggle-button"
+                    class="sc-fzplWN jAabRP   "
+                    data-testid="select-list__toggle-button"
+                    id="downshift-0-toggle-button"
+                    type="button"
                   />
-                </label>
-              </div>
-              <div
-                class="sc-AxmLO kuiknc flex flex-1"
-              >
+                  <ul
+                    aria-labelledby="downshift-0-label"
+                    class="sc-fznyAO dPDaFu"
+                    id="downshift-0-menu"
+                    role="listbox"
+                    tabindex="-1"
+                  />
+                </div>
                 <div
-                  class="relative w-full"
+                  class="sc-AxgMl sc-Axmtr hWILTO w-10 pointer-events-none text-theme-neutral"
                 >
-                  <input
-                    class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 sr-only"
-                    data-testid="select-list__input"
-                    readonly=""
-                    type="text"
-                    value=""
-                  />
                   <div
-                    class="relative w-full cursor-pointer"
+                    class="sc-AxjAm dKDmBo"
+                    height="8"
+                    width="8"
                   >
-                    <div>
-                      <button
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-labelledby="downshift-0-label downshift-0-toggle-button"
-                        class="sc-fznyAO clcORT   "
-                        data-testid="select-list__toggle-button"
-                        id="downshift-0-toggle-button"
-                        type="button"
-                      />
-                      <ul
-                        aria-labelledby="downshift-0-label"
-                        class="sc-fznKkj iVkfZr"
-                        id="downshift-0-menu"
-                        role="listbox"
-                        tabindex="-1"
-                      />
-                    </div>
-                    <div
-                      class="sc-AxgMl sc-Axmtr hWILTO w-10 pointer-events-none text-theme-neutral"
-                    >
-                      <div
-                        class="sc-AxirZ ZmpmT"
-                        height="8"
-                        width="8"
-                      >
-                        <svg>
-                          arrowdown.svg
-                        </svg>
-                      </div>
-                    </div>
+                    <svg>
+                      arrowdown.svg
+                    </svg>
                   </div>
                 </div>
               </div>
             </div>
-            <div
-              class="flex-1"
+          </fieldset>
+          <fieldset
+            class="sc-AxhCb ckQmOL flex flex-col space-y-2"
+          >
+            <label
+              class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
+              data-testid="FormLabel"
+              for="value"
             >
+              Link
               <div
-                class="mb-2"
-              >
-                <label
-                  class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
-                  data-testid="FormLabel"
-                >
-                  Link
-                  <div
-                    class="w-1 h-1 mt-1 ml-1 rounded-full bg-theme-danger-400"
-                    data-testid="FormLabel__required"
-                  />
-                </label>
-              </div>
-              <div
-                class="sc-AxmLO kuiknc"
-              >
-                <input
-                  class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 pr-20"
-                  data-testid="LinkCollection__input-link"
-                  maxlength="255"
-                  placeholder=" "
-                  type="text"
-                />
-              </div>
-            </div>
-          </div>
+                class="w-1 h-1 mt-1 ml-1 rounded-full bg-theme-danger-400"
+                data-testid="FormLabel__required"
+              />
+            </label>
+            <input
+              class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 "
+              data-testid="Input"
+              name="value"
+            />
+          </fieldset>
           <button
-            class="sc-AxjAm cyswVS w-full mt-2"
+            class="sc-AxiKw jBPYDN col-span-2"
             color="primary"
-            data-testid="LinkCollection__add-link"
-            disabled=""
-            type="button"
+            type="submit"
           >
             Add Link
           </button>
-        </div>
-        <div
-          class="mt-8 mb-2 text-sm text-theme-neutral-dark"
-        >
-          Your social media
-        </div>
-        <div
-          class="sc-fznZeY gcZndM"
-          role="table"
-        >
-          <table
-            class="table-auto"
-          >
-            <thead>
-              <tr
-                role="row"
-              >
-                <th
-                  class="text-sm text-left select-none text-theme-neutral"
-                  colspan="1"
-                  data-testid="table__th--0"
-                  role="columnheader"
-                  style="cursor: pointer;"
-                  title="Toggle SortBy"
-                >
-                  <div
-                    class="flex flex-inline align-top "
-                  >
-                    <div>
-                      Name
-                    </div>
-                    <div
-                      class="flex items-center ml-2 text-theme-color-neutral"
-                      data-testid="table__Sort"
-                    >
-                      <div
-                        class="sc-AxirZ jMwzyA"
-                        height="12"
-                        width="15"
-                      >
-                        <svg>
-                          sort.svg
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </th>
-                <th
-                  class="text-sm text-left select-none text-theme-neutral"
-                  colspan="1"
-                  data-testid="table__th--1"
-                  role="columnheader"
-                  style="cursor: pointer;"
-                  title="Toggle SortBy"
-                >
-                  <div
-                    class="flex flex-inline align-top "
-                  >
-                    <div>
-                      Link
-                    </div>
-                    <div
-                      class="flex items-center ml-2 text-theme-color-neutral"
-                      data-testid="table__Sort"
-                    >
-                      <div
-                        class="sc-AxirZ jMwzyA"
-                        height="12"
-                        width="15"
-                      >
-                        <svg>
-                          sort.svg
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </th>
-                <th
-                  class="text-sm text-left select-none text-theme-neutral"
-                  colspan="1"
-                  data-testid="table__th--2"
-                  role="columnheader"
-                >
-                  <div
-                    class="flex flex-inline align-top "
-                  >
-                    <div>
-                       
-                    </div>
-                  </div>
-                </th>
-              </tr>
-            </thead>
-            <tbody
-              role="rowgroup"
-            />
-          </table>
-        </div>
+        </form>
       </div>
     </div>
   </div>

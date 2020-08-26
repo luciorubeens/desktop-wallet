@@ -2,7 +2,7 @@
 import { act, renderHook } from "@testing-library/react-hooks";
 import { createMemoryHistory } from "history";
 import React from "react";
-import { FormContext, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { Route } from "react-router-dom";
 import { fireEvent, render, RenderResult, renderWithRouter, waitFor } from "testing-library";
 
@@ -15,9 +15,9 @@ describe("Vote For Delegate", () => {
 	it("should render 1st step", async () => {
 		const { result: form } = renderHook(() => useForm());
 		const { getByTestId, asFragment } = render(
-			<FormContext {...form.current}>
+			<FormProvider {...form.current}>
 				<FirstStep />
-			</FormContext>,
+			</FormProvider>,
 		);
 
 		expect(getByTestId("SendVoteTransaction__step--first")).toBeTruthy();
@@ -43,9 +43,9 @@ describe("Vote For Delegate", () => {
 		const { result: form } = renderHook(() => useForm());
 
 		const { getByTestId, asFragment } = render(
-			<FormContext {...form.current}>
+			<FormProvider {...form.current}>
 				<FourthStep />
-			</FormContext>,
+			</FormProvider>,
 		);
 
 		expect(getByTestId("TransactionSuccessful")).toBeTruthy();

@@ -54,7 +54,7 @@ const SecondStep = () => {
 					<LinkCollection
 						title={t("TRANSACTION.REPOSITORIES.TITLE")}
 						description={t("TRANSACTION.REPOSITORIES.DESCRIPTION")}
-						types={EntitySourceControl.map((source) => ({ label: source.name, value: source.id }))}
+						types={EntitySourceControl.map((source) => ({ label: source.name, value: source.value }))}
 						typeName="repository"
 					/>
 				</TransactionDetail>

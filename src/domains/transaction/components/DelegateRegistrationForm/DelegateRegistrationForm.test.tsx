@@ -4,7 +4,7 @@ import { Profile, ReadWriteWallet } from "@arkecosystem/platform-sdk-profiles";
 import { BigNumber } from "@arkecosystem/platform-sdk-support";
 import { act, renderHook } from "@testing-library/react-hooks";
 import React from "react";
-import { FormContext, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import delegateRegistrationFixture from "tests/fixtures/coins/ark/transactions/delegate-registration.json";
 import { env, fireEvent, getDefaultProfileId, render, RenderResult, waitFor, within } from "utils/testing-library";
 
@@ -25,9 +25,9 @@ const renderComponent = async (defaultValues = { fee: (2 * 1e8).toFixed(0) }) =>
 
 	await act(async () => {
 		renderer = render(
-			<FormContext {...form.current}>
+			<FormProvider {...form.current}>
 				<DelegateRegistrationForm.component activeTab={2} feeOptions={feeOptions} wallet={wallet} />
-			</FormContext>,
+			</FormProvider>,
 		);
 
 		await waitFor(() => expect(renderer.getByTestId("DelegateRegistrationForm__step--second")));
@@ -75,9 +75,9 @@ describe("DelegateRegistrationForm", () => {
 		const { asFragment, form, getByTestId, rerender } = await renderComponent();
 
 		rerender(
-			<FormContext {...form}>
+			<FormProvider {...form}>
 				<DelegateRegistrationForm.component activeTab={3} feeOptions={feeOptions} wallet={wallet} />
-			</FormContext>,
+			</FormProvider>,
 		);
 
 		await waitFor(() => expect(getByTestId("DelegateRegistrationForm__step--third")));
@@ -94,9 +94,9 @@ describe("DelegateRegistrationForm", () => {
 
 		await act(async () => {
 			rerender(
-				<FormContext {...form}>
+				<FormProvider {...form}>
 					<DelegateRegistrationForm.component activeTab={2} feeOptions={feeOptions} wallet={wallet} />
-				</FormContext>,
+				</FormProvider>,
 			);
 
 			await waitFor(() => expect(getByTestId("DelegateRegistrationForm__step--second")));
@@ -116,9 +116,9 @@ describe("DelegateRegistrationForm", () => {
 
 		await act(async () => {
 			rerender(
-				<FormContext {...form}>
+				<FormProvider {...form}>
 					<DelegateRegistrationForm.component activeTab={2} feeOptions={feeOptions} wallet={wallet} />
-				</FormContext>,
+				</FormProvider>,
 			);
 
 			await waitFor(() => expect(getByTestId("DelegateRegistrationForm__step--second")));
@@ -140,9 +140,9 @@ describe("DelegateRegistrationForm", () => {
 
 		await act(async () => {
 			rerender(
-				<FormContext {...form}>
+				<FormProvider {...form}>
 					<DelegateRegistrationForm.component activeTab={2} feeOptions={feeOptions} wallet={wallet} />
-				</FormContext>,
+				</FormProvider>,
 			);
 
 			await waitFor(() => expect(getByTestId("DelegateRegistrationForm__step--second")));
@@ -162,9 +162,9 @@ describe("DelegateRegistrationForm", () => {
 
 		await act(async () => {
 			rerender(
-				<FormContext {...form}>
+				<FormProvider {...form}>
 					<DelegateRegistrationForm.component activeTab={2} feeOptions={feeOptions} wallet={wallet} />
-				</FormContext>,
+				</FormProvider>,
 			);
 
 			await waitFor(() => expect(getByTestId("DelegateRegistrationForm__step--second")));

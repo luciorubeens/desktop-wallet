@@ -1,4 +1,5 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 
 import { LinkCollection } from "./LinkCollection";
 
@@ -19,42 +20,18 @@ const types = [
 	},
 ];
 
-const links = [
-	{
-		link: "test",
-		type: "facebook",
-	},
-	{
-		link: "test 2",
-		type: "twitter",
-	},
-	{
-		link: "test 3",
-		type: "linkedin",
-	},
-	{
-		link: "test 4",
-		type: "twitter",
-	},
-];
+export const Default = () => {
+	const { control, register } = useForm();
 
-export const Default = () => (
-	<LinkCollection
-		title="Social Media"
-		description="Tell people more about yourself through social media"
-		types={types}
-		typeName="media"
-	/>
-);
-
-export const WithSelection = () => (
-	<LinkCollection
-		title="Social Media"
-		description="Tell people more about yourself through social media"
-		types={types}
-		data={links}
-		typeName="media"
-		selectionTypes={["facebook", "twitter"]}
-		selectionTypeTitle="Primary"
-	/>
-);
+	return (
+		<LinkCollection
+			control={control}
+			registerRef={register}
+			selectOptions={types}
+			name="socialMedia"
+			title="Social Media"
+			description="Tell people more about yourself through social media"
+			itemLabel="media"
+		/>
+	);
+};

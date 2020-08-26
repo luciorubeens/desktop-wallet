@@ -1,21 +1,21 @@
 export const EntitySourceControl = [
 	{
-		id: "bitbucket",
+		value: "bitbucket",
 		name: "BitBucket",
 		url: "https://bitbucket.org",
 	},
 	{
-		id: "github",
+		value: "github",
 		name: "GitHub",
 		url: "https://github.com",
 	},
 	{
-		id: "gitlab",
+		value: "gitlab",
 		name: "GitLab",
 		url: "https://gitlab.com",
 	},
 	{
-		id: "npm",
+		value: "npm",
 		name: "NPM",
 		url: "https://npmjs.com",
 	},
@@ -23,58 +23,91 @@ export const EntitySourceControl = [
 
 export const EntitySocialMedia = [
 	{
-		id: "discord",
+		value: "discord",
 		name: "Discord",
 		url: "https://discord.com",
 	},
 	{
-		id: "facebook",
+		value: "facebook",
 		name: "Facebook",
 		url: "https://facebook.com",
 	},
 	{
-		id: "instagram",
+		value: "instagram",
 		name: "Instagram",
 		url: "https://instagram.com",
 	},
 	{
-		id: "linkedin",
+		value: "linkedin",
 		name: "LinkedIn",
 		url: "https://linkedin.com",
 	},
 	{
-		id: "medium",
+		value: "medium",
 		name: "Medium",
 		url: "https://medium.com",
 	},
 	{
-		id: "reddit",
+		value: "reddit",
 		name: "Reddit",
 		url: "https://reddit.com",
 	},
 	{
-		id: "slack",
+		value: "slack",
 		name: "Slack",
 		url: "https://slack.com",
 	},
 	{
-		id: "telegram",
+		value: "telegram",
 		name: "Telegram",
 		url: "https://telegram.org",
 	},
 	{
-		id: "twitter",
+		value: "twitter",
 		name: "Twitter",
 		url: "https://twitter.com",
 	},
 	{
-		id: "wechat",
+		value: "wechat",
 		name: "WeChat",
 		url: "https://wechat.com",
 	},
 	{
-		id: "youtube",
+		value: "youtube",
 		name: "YouTube",
 		url: "https://youtube.com",
+	},
+];
+
+export const EntitySourceMedia = [
+	{
+		value: "flickr",
+		name: "Flickr",
+		url: "https://flickr.com",
+	},
+	{
+		value: "imgur",
+		name: "Imgur",
+		url: "https://imgur.com",
+	},
+	{
+		value: "github",
+		name: "GitHub",
+		url: "https://github.com",
+	},
+	{
+		value: "gitlab",
+		name: "GitLab",
+		url: "https://gitlab.com",
+	},
+	{
+		value: "youtube",
+		name: "YouTube",
+		url: "https://youtube.com",
+	},
+	{
+		value: "vimeo",
+		name: "Vimeo",
+		url: "https://vimeo.com",
 	},
 ];

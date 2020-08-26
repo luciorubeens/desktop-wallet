@@ -5,7 +5,7 @@ import { httpClient } from "app/services";
 import { createMemoryHistory } from "history";
 import nock from "nock";
 import React from "react";
-import { FormContext, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { Route } from "react-router-dom";
 import {
 	env,
@@ -45,9 +45,9 @@ describe("SendTransactionForm", () => {
 
 		await act(async () => {
 			rendered = render(
-				<FormContext {...form.current}>
+				<FormProvider {...form.current}>
 					<SendTransactionForm profile={profile} networks={env.availableNetworks()} />
-				</FormContext>,
+				</FormProvider>,
 			);
 		});
 
@@ -64,9 +64,9 @@ describe("SendTransactionForm", () => {
 
 		await act(async () => {
 			rendered = render(
-				<FormContext {...form.current}>
+				<FormProvider {...form.current}>
 					<SendTransactionForm profile={profile} networks={env.availableNetworks()} />
-				</FormContext>,
+				</FormProvider>,
 			);
 		});
 
@@ -110,9 +110,9 @@ describe("SendTransactionForm", () => {
 		await act(async () => {
 			rendered = renderWithRouter(
 				<Route path="/profiles/:profileId/transactions/:walletId/transfer">
-					<FormContext {...form.current}>
+					<FormProvider {...form.current}>
 						<SendTransactionForm profile={profile} networks={env.availableNetworks()} />
-					</FormContext>
+					</FormProvider>
 				</Route>,
 				{
 					routes: [sendUrl],
@@ -171,9 +171,9 @@ describe("SendTransactionForm", () => {
 
 		await act(async () => {
 			rendered = render(
-				<FormContext {...form.current}>
+				<FormProvider {...form.current}>
 					<SendTransactionForm profile={profile} networks={env.availableNetworks()} onFail={onFail} />
-				</FormContext>,
+				</FormProvider>,
 			);
 		});
 

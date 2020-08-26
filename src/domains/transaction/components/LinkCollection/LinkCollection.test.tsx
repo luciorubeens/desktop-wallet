@@ -1,5 +1,7 @@
+import { renderHook } from "@testing-library/react-hooks";
 import React from "react";
-import { act, fireEvent, render } from "testing-library";
+import { useForm } from "react-hook-form";
+import { render } from "utils/testing-library";
 
 import { LinkCollection } from "./LinkCollection";
 
@@ -19,114 +21,63 @@ const types = [
 ];
 
 describe("LinkCollection", () => {
-	it("should render", () => {
-		const { asFragment, getByTestId } = render(
+	it("should render without fields", () => {
+		const { result } = renderHook(() => useForm());
+		const { control, register } = result.current;
+
+		const { asFragment, getByTestId, queryByTestId } = render(
 			<LinkCollection
 				title="Social Media"
 				description="Tell people more about yourself through social media"
-				types={types}
-				typeName="media"
+				selectOptions={types}
+				name="socialMedia"
+				itemLabel="media"
+				registerRef={register}
+				control={control}
 			/>,
 		);
 
-		expect(getByTestId("LinkCollection")).toBeTruthy();
+		expect(getByTestId("LinkCollectionContainer")).toBeInTheDocument();
+		expect(getByTestId("LinkCollectionForm")).toBeInTheDocument();
+		expect(queryByTestId("LinkCollectionTable")).not.toBeInTheDocument();
 		expect(asFragment()).toMatchSnapshot();
 	});
 
-	it.only("should toggle open/close of link collection", () => {
-		const { asFragment, getByTestId, debug } = render(
-			<LinkCollection
-				title="Social Media"
-				description="Tell people more about yourself through social media"
-				types={types}
-				typeName="social media"
-			/>,
-		);
-
-		expect(getByTestId("LinkCollection__collapse")).toHaveAttribute("aria-hidden", "true");
-
-		fireEvent.click(getByTestId("LinkCollection__header"));
-
-		expect(getByTestId("LinkCollection__collapse")).toHaveAttribute("aria-hidden", "false");
-
-		fireEvent.click(getByTestId("LinkCollection__header"));
-
-		expect(getByTestId("LinkCollection__collapse")).toHaveAttribute("aria-hidden", "true");
-
-		expect(asFragment()).toMatchSnapshot();
-	});
-
-	it("should add and remove links", () => {
-		const { asFragment, getByTestId } = render(
-			<LinkCollection
-				title="Social Media"
-				description="Tell people more about yourself through social media"
-				types={types}
-				typeName="media"
-			/>,
-		);
-
-		fireEvent.click(getByTestId("LinkCollection__header"));
-
-		const toggle = getByTestId("select-list__toggle-button");
-
-		act(() => {
-			fireEvent.click(toggle);
-		});
-		const firstOption = getByTestId("select-list__toggle-option-1");
-		expect(firstOption).toBeTruthy();
-
-		act(() => {
-			fireEvent.click(firstOption);
-		});
-
-		expect(getByTestId("select-list__input")).toHaveValue("twitter");
-
-		const linkField = getByTestId("LinkCollection__input-link");
-		act(() => {
-			fireEvent.change(linkField, {
-				target: {
-					value: "testing link",
+	it("should render with fields", () => {
+		const { result } = renderHook(() =>
+			useForm({
+				defaultValues: {
+					socialMedia: [
+						{
+							type: "facebook",
+							value: "https://facebook.com",
+						},
+						{
+							type: "instagram",
+							value: "https://instagram.com",
+						},
+					],
 				},
-			});
-		});
+			}),
+		);
+		const { control, register } = result.current;
 
-		expect(linkField).toHaveValue("testing link");
-
-		act(() => {
-			fireEvent.click(getByTestId("LinkCollection__add-link"));
-		});
-
-		expect(getByTestId("LinkCollection")).toHaveTextContent("Twitter");
-		expect(getByTestId("LinkCollection")).toHaveTextContent("testing link");
-
-		fireEvent.click(getByTestId("LinkCollection__remove-link"));
-
-		expect(getByTestId("LinkCollection")).not.toHaveTextContent("twitter");
-		expect(getByTestId("LinkCollection")).not.toHaveTextContent("testing link");
-		expect(asFragment()).toMatchSnapshot();
-	});
-
-	it("should select a specific link type", () => {
-		const { asFragment, getAllByTestId, getByTestId } = render(
+		const { asFragment, getByTestId, queryByTestId } = render(
 			<LinkCollection
 				title="Social Media"
 				description="Tell people more about yourself through social media"
-				types={types}
-				data={[
-					{ link: "testing link", type: "twitter" },
-					{ link: "testing link 2", type: "facebook" },
-				]}
-				typeName="media"
-				selectionTypes={["twitter"]}
-				selectionTypeTitle="Primary"
+				selectOptions={types}
+				name="socialMedia"
+				itemLabel="media"
+				registerRef={register}
+				control={control}
 			/>,
 		);
 
-		fireEvent.click(getByTestId("LinkCollection__header"));
-		fireEvent.click(getAllByTestId("LinkCollection__selected")[0]);
-
-		expect(getByTestId("LinkCollection")).toBeTruthy();
+		expect(getByTestId("LinkCollectionContainer")).toBeInTheDocument();
+		expect(getByTestId("LinkCollectionForm")).toBeInTheDocument();
+		expect(getByTestId("LinkCollection__label")).toBeInTheDocument();
+		expect(getByTestId("LinkCollectionTable")).toBeInTheDocument();
 		expect(asFragment()).toMatchSnapshot();
 	});
 });
