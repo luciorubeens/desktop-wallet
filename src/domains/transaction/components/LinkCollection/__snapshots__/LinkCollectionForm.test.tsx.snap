@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkCollectionForm should add link and clear the form after submitting 1`] = `
+<DocumentFragment>
+  <form
+    class="grid col-gap-2 row-gap-4"
+    data-testid="LinkCollectionForm"
+    style="grid-template-columns: 40% 60%;"
+  >
+    <fieldset
+      class="sc-AxirZ izhStr flex flex-col space-y-2"
+    >
+      <label
+        class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
+        data-testid="FormLabel"
+        for="type"
+      >
+        Add example
+        <div
+          class="w-1 h-1 mt-1 ml-1 rounded-full bg-theme-danger-400"
+          data-testid="FormLabel__required"
+        />
+      </label>
+      <div
+        class="relative w-full"
+      >
+        <input
+          class="sc-AxiKw ffjERP overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 sr-only"
+          data-testid="select-list__input"
+          name="type"
+          readonly=""
+          type="text"
+          value="example0"
+        />
+        <div
+          class="relative w-full cursor-pointer"
+        >
+          <div>
+            <button
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-labelledby="downshift-0-label downshift-0-toggle-button"
+              class="sc-fzpans SmPby  is-selected "
+              data-testid="select-list__toggle-button"
+              id="downshift-0-toggle-button"
+              type="button"
+            >
+              Example
+            </button>
+            <ul
+              aria-labelledby="downshift-0-label"
+              class="sc-fzplWN kxNmJG"
+              id="downshift-0-menu"
+              role="listbox"
+              tabindex="-1"
+            />
+          </div>
+          <div
+            class="sc-AxhUy sc-AxheI bYHtKZ w-10 pointer-events-none text-theme-neutral"
+          >
+            <div
+              class="sc-AxhCb dxfUlj"
+              height="8"
+              width="8"
+            >
+              <svg>
+                arrowdown.svg
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset
+      class="sc-AxirZ izhStr flex flex-col space-y-2"
+    >
+      <label
+        class="flex inline-block mb-2 text-sm font-semibold transition-colors duration-100 FormLabel text-theme-neutral-dark"
+        data-testid="FormLabel"
+        for="value"
+      >
+        Link
+        <div
+          class="w-1 h-1 mt-1 ml-1 rounded-full bg-theme-danger-400"
+          data-testid="FormLabel__required"
+        />
+      </label>
+      <input
+        class="sc-AxiKw ffjERP overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 "
+        data-testid="LinkCollectionForm__value"
+        name="value"
+      />
+    </fieldset>
+    <button
+      class="sc-AxjAm cyswVS col-span-2"
+      color="primary"
+      data-testid="LinkCollectionForm__submit"
+      type="submit"
+    >
+      Add Link
+    </button>
+  </form>
+</DocumentFragment>
+`;

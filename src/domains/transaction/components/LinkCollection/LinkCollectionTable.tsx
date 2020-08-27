@@ -14,29 +14,29 @@ type Props = {
 	remove: (index: number) => void;
 	registerRef: (options?: ValidationRules) => (ref: HTMLInputElement | null) => void;
 
-	chooseTypes?: string[];
-	chooseTypesTitle?: string;
-	onChoose?: (link: EntityLink) => void;
-	activeChoose?: EntityLink;
+	optionsTypes?: string[];
+	optionsTypesTitle?: string;
+	onOptionChange?: (link: EntityLink) => void;
+	optionChecked?: number;
 };
 
 export const LinkCollectionTable = ({
 	remove,
-	chooseTypesTitle,
-	chooseTypes,
+	optionsTypesTitle,
+	optionsTypes,
 	registerRef,
 	fields,
-	activeChoose,
-	onChoose,
+	optionChecked,
+	onOptionChange,
 	name,
 }: Props) => {
 	const { t } = useTranslation();
 
 	const columns = [];
 
-	if (chooseTypesTitle) {
+	if (optionsTypesTitle) {
 		columns.push({
-			Header: chooseTypesTitle,
+			Header: optionsTypesTitle,
 			accessor: "isSelected",
 		});
 	}
@@ -64,21 +64,22 @@ export const LinkCollectionTable = ({
 						key={rowData.value}
 						className="font-semibold border-b border-theme-neutral-200"
 					>
-						{chooseTypesTitle && (
+						{optionsTypesTitle && (
 							<td className="w-16 text-center">
-								{chooseTypes && chooseTypes.includes(rowData.type) && (
+								{optionsTypes?.includes(rowData.type) && (
 									<RadioButton
-										data-testid="LinkCollection__selected"
-										checked={
-											activeChoose?.type === rowData.type && activeChoose?.value === rowData.value
-										}
-										onChange={() => onChoose?.(rowData)}
+										data-testid="LinkCollectionTable__row__option"
+										checked={optionChecked === rowIndex}
+										onChange={() => onOptionChange?.(rowData)}
 									/>
 								)}
 							</td>
 						)}
 
-						<td className={`w-40 ${rowIndex > 0 ? "py-6" : "pb-6 pt-2"}`}>
+						<td
+							data-testid="LinkCollectionTable__row__type"
+							className={`w-40 ${rowIndex > 0 ? "py-6" : "pb-6 pt-2"}`}
+						>
 							<input
 								className="hidden"
 								name={`${name}[${rowIndex}].type`}
@@ -89,7 +90,10 @@ export const LinkCollectionTable = ({
 							<span>{t(`TRANSACTION.LINK_TYPES.${rowData.type.toUpperCase()}`)}</span>
 						</td>
 
-						<td className={rowIndex > 0 ? "py-6" : "pb-6 pt-2"}>
+						<td
+							data-testid="LinkCollectionTable__row__value"
+							className={rowIndex > 0 ? "py-6" : "pb-6 pt-2"}
+						>
 							<input
 								className="focus:outline-none"
 								name={`${name}[${rowIndex}].value`}

@@ -1,0 +1,1372 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkCollectionTable With Options should emit event on change 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="LinkCollectionTable"
+  >
+    <div
+      class="sc-AxhCb tChBQ"
+      role="table"
+    >
+      <table
+        class="table-auto"
+      >
+        <thead>
+          <tr
+            role="row"
+          >
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--0"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                  Avatar
+                </div>
+                <div
+                  class="flex items-center ml-2 text-theme-color-neutral"
+                  data-testid="table__Sort"
+                >
+                  <div
+                    class="sc-AxirZ jMwzyA"
+                    height="12"
+                    width="15"
+                  >
+                    <svg>
+                      sort.svg
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </th>
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--1"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                  Name
+                </div>
+                <div
+                  class="flex items-center ml-2 text-theme-color-neutral"
+                  data-testid="table__Sort"
+                >
+                  <div
+                    class="sc-AxirZ jMwzyA"
+                    height="12"
+                    width="15"
+                  >
+                    <svg>
+                      sort.svg
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </th>
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--2"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                  Link
+                </div>
+                <div
+                  class="flex items-center ml-2 text-theme-color-neutral"
+                  data-testid="table__Sort"
+                >
+                  <div
+                    class="sc-AxirZ jMwzyA"
+                    height="12"
+                    width="15"
+                  >
+                    <svg>
+                      sort.svg
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </th>
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--3"
+              role="columnheader"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                   
+                </div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          role="rowgroup"
+        >
+          <tr
+            class="font-semibold border-b border-theme-neutral-200"
+            data-testid="LinkCollectionTable__row"
+          >
+            <td
+              class="w-16 text-center"
+            >
+              <input
+                class="sc-AxiKw fIRSaL"
+                color="success"
+                data-testid="LinkCollectionTable__row__option"
+                type="radio"
+              />
+            </td>
+            <td
+              class="w-40 pb-6 pt-2"
+              data-testid="LinkCollectionTable__row__type"
+            >
+              <input
+                class="hidden"
+                name="example[0].type"
+                readonly=""
+                value="facebook"
+              />
+              <span>
+                Facebook
+              </span>
+            </td>
+            <td
+              class="pb-6 pt-2"
+              data-testid="LinkCollectionTable__row__value"
+            >
+              <input
+                class="focus:outline-none"
+                name="example[0].value"
+                readonly=""
+                value="https://facebook.com"
+              />
+            </td>
+            <td
+              class="w-16 text-right pb-4"
+            >
+              <button
+                class="sc-AxjAm bBBiEi"
+                color="primary"
+                data-testid="LinkCollectionTable__remove-link"
+                type="button"
+              >
+                <div
+                  class="sc-AxirZ iQaTP"
+                  height="1em"
+                  width="1em"
+                >
+                  <svg>
+                    trash.svg
+                  </svg>
+                </div>
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="font-semibold border-b border-theme-neutral-200"
+            data-testid="LinkCollectionTable__row"
+          >
+            <td
+              class="w-16 text-center"
+            >
+              <input
+                checked=""
+                class="sc-AxiKw fIRSaL"
+                color="success"
+                data-testid="LinkCollectionTable__row__option"
+                type="radio"
+              />
+            </td>
+            <td
+              class="w-40 py-6"
+              data-testid="LinkCollectionTable__row__type"
+            >
+              <input
+                class="hidden"
+                name="example[1].type"
+                readonly=""
+                value="instagram"
+              />
+              <span>
+                Instagram
+              </span>
+            </td>
+            <td
+              class="py-6"
+              data-testid="LinkCollectionTable__row__value"
+            >
+              <input
+                class="focus:outline-none"
+                name="example[1].value"
+                readonly=""
+                value="https://instagram.com"
+              />
+            </td>
+            <td
+              class="w-16 text-right false"
+            >
+              <button
+                class="sc-AxjAm bBBiEi"
+                color="primary"
+                data-testid="LinkCollectionTable__remove-link"
+                type="button"
+              >
+                <div
+                  class="sc-AxirZ iQaTP"
+                  height="1em"
+                  width="1em"
+                >
+                  <svg>
+                    trash.svg
+                  </svg>
+                </div>
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="font-semibold border-b border-theme-neutral-200"
+            data-testid="LinkCollectionTable__row"
+          >
+            <td
+              class="w-16 text-center"
+            />
+            <td
+              class="w-40 py-6"
+              data-testid="LinkCollectionTable__row__type"
+            >
+              <input
+                class="hidden"
+                name="example[2].type"
+                readonly=""
+                value="twitter"
+              />
+              <span>
+                Twitter
+              </span>
+            </td>
+            <td
+              class="py-6"
+              data-testid="LinkCollectionTable__row__value"
+            >
+              <input
+                class="focus:outline-none"
+                name="example[2].value"
+                readonly=""
+                value="https://twitter.com"
+              />
+            </td>
+            <td
+              class="w-16 text-right false"
+            >
+              <button
+                class="sc-AxjAm bBBiEi"
+                color="primary"
+                data-testid="LinkCollectionTable__remove-link"
+                type="button"
+              >
+                <div
+                  class="sc-AxirZ iQaTP"
+                  height="1em"
+                  width="1em"
+                >
+                  <svg>
+                    trash.svg
+                  </svg>
+                </div>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`LinkCollectionTable With Options should show checked option 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="LinkCollectionTable"
+  >
+    <div
+      class="sc-AxhCb tChBQ"
+      role="table"
+    >
+      <table
+        class="table-auto"
+      >
+        <thead>
+          <tr
+            role="row"
+          >
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--0"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                  Avatar
+                </div>
+                <div
+                  class="flex items-center ml-2 text-theme-color-neutral"
+                  data-testid="table__Sort"
+                >
+                  <div
+                    class="sc-AxirZ jMwzyA"
+                    height="12"
+                    width="15"
+                  >
+                    <svg>
+                      sort.svg
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </th>
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--1"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                  Name
+                </div>
+                <div
+                  class="flex items-center ml-2 text-theme-color-neutral"
+                  data-testid="table__Sort"
+                >
+                  <div
+                    class="sc-AxirZ jMwzyA"
+                    height="12"
+                    width="15"
+                  >
+                    <svg>
+                      sort.svg
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </th>
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--2"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                  Link
+                </div>
+                <div
+                  class="flex items-center ml-2 text-theme-color-neutral"
+                  data-testid="table__Sort"
+                >
+                  <div
+                    class="sc-AxirZ jMwzyA"
+                    height="12"
+                    width="15"
+                  >
+                    <svg>
+                      sort.svg
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </th>
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--3"
+              role="columnheader"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                   
+                </div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          role="rowgroup"
+        >
+          <tr
+            class="font-semibold border-b border-theme-neutral-200"
+            data-testid="LinkCollectionTable__row"
+          >
+            <td
+              class="w-16 text-center"
+            >
+              <input
+                class="sc-AxiKw fIRSaL"
+                color="success"
+                data-testid="LinkCollectionTable__row__option"
+                type="radio"
+              />
+            </td>
+            <td
+              class="w-40 pb-6 pt-2"
+              data-testid="LinkCollectionTable__row__type"
+            >
+              <input
+                class="hidden"
+                name="example[0].type"
+                readonly=""
+                value="facebook"
+              />
+              <span>
+                Facebook
+              </span>
+            </td>
+            <td
+              class="pb-6 pt-2"
+              data-testid="LinkCollectionTable__row__value"
+            >
+              <input
+                class="focus:outline-none"
+                name="example[0].value"
+                readonly=""
+                value="https://facebook.com"
+              />
+            </td>
+            <td
+              class="w-16 text-right pb-4"
+            >
+              <button
+                class="sc-AxjAm bBBiEi"
+                color="primary"
+                data-testid="LinkCollectionTable__remove-link"
+                type="button"
+              >
+                <div
+                  class="sc-AxirZ iQaTP"
+                  height="1em"
+                  width="1em"
+                >
+                  <svg>
+                    trash.svg
+                  </svg>
+                </div>
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="font-semibold border-b border-theme-neutral-200"
+            data-testid="LinkCollectionTable__row"
+          >
+            <td
+              class="w-16 text-center"
+            >
+              <input
+                checked=""
+                class="sc-AxiKw fIRSaL"
+                color="success"
+                data-testid="LinkCollectionTable__row__option"
+                type="radio"
+              />
+            </td>
+            <td
+              class="w-40 py-6"
+              data-testid="LinkCollectionTable__row__type"
+            >
+              <input
+                class="hidden"
+                name="example[1].type"
+                readonly=""
+                value="instagram"
+              />
+              <span>
+                Instagram
+              </span>
+            </td>
+            <td
+              class="py-6"
+              data-testid="LinkCollectionTable__row__value"
+            >
+              <input
+                class="focus:outline-none"
+                name="example[1].value"
+                readonly=""
+                value="https://instagram.com"
+              />
+            </td>
+            <td
+              class="w-16 text-right false"
+            >
+              <button
+                class="sc-AxjAm bBBiEi"
+                color="primary"
+                data-testid="LinkCollectionTable__remove-link"
+                type="button"
+              >
+                <div
+                  class="sc-AxirZ iQaTP"
+                  height="1em"
+                  width="1em"
+                >
+                  <svg>
+                    trash.svg
+                  </svg>
+                </div>
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="font-semibold border-b border-theme-neutral-200"
+            data-testid="LinkCollectionTable__row"
+          >
+            <td
+              class="w-16 text-center"
+            />
+            <td
+              class="w-40 py-6"
+              data-testid="LinkCollectionTable__row__type"
+            >
+              <input
+                class="hidden"
+                name="example[2].type"
+                readonly=""
+                value="twitter"
+              />
+              <span>
+                Twitter
+              </span>
+            </td>
+            <td
+              class="py-6"
+              data-testid="LinkCollectionTable__row__value"
+            >
+              <input
+                class="focus:outline-none"
+                name="example[2].value"
+                readonly=""
+                value="https://twitter.com"
+              />
+            </td>
+            <td
+              class="w-16 text-right false"
+            >
+              <button
+                class="sc-AxjAm bBBiEi"
+                color="primary"
+                data-testid="LinkCollectionTable__remove-link"
+                type="button"
+              >
+                <div
+                  class="sc-AxirZ iQaTP"
+                  height="1em"
+                  width="1em"
+                >
+                  <svg>
+                    trash.svg
+                  </svg>
+                </div>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`LinkCollectionTable With Options should show with options column 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="LinkCollectionTable"
+  >
+    <div
+      class="sc-AxhCb tChBQ"
+      role="table"
+    >
+      <table
+        class="table-auto"
+      >
+        <thead>
+          <tr
+            role="row"
+          >
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--0"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                  Avatar
+                </div>
+                <div
+                  class="flex items-center ml-2 text-theme-color-neutral"
+                  data-testid="table__Sort"
+                >
+                  <div
+                    class="sc-AxirZ jMwzyA"
+                    height="12"
+                    width="15"
+                  >
+                    <svg>
+                      sort.svg
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </th>
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--1"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                  Name
+                </div>
+                <div
+                  class="flex items-center ml-2 text-theme-color-neutral"
+                  data-testid="table__Sort"
+                >
+                  <div
+                    class="sc-AxirZ jMwzyA"
+                    height="12"
+                    width="15"
+                  >
+                    <svg>
+                      sort.svg
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </th>
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--2"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                  Link
+                </div>
+                <div
+                  class="flex items-center ml-2 text-theme-color-neutral"
+                  data-testid="table__Sort"
+                >
+                  <div
+                    class="sc-AxirZ jMwzyA"
+                    height="12"
+                    width="15"
+                  >
+                    <svg>
+                      sort.svg
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </th>
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--3"
+              role="columnheader"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                   
+                </div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          role="rowgroup"
+        >
+          <tr
+            class="font-semibold border-b border-theme-neutral-200"
+            data-testid="LinkCollectionTable__row"
+          >
+            <td
+              class="w-16 text-center"
+            >
+              <input
+                class="sc-AxiKw fIRSaL"
+                color="success"
+                data-testid="LinkCollectionTable__row__option"
+                type="radio"
+              />
+            </td>
+            <td
+              class="w-40 pb-6 pt-2"
+              data-testid="LinkCollectionTable__row__type"
+            >
+              <input
+                class="hidden"
+                name="example[0].type"
+                readonly=""
+                value="facebook"
+              />
+              <span>
+                Facebook
+              </span>
+            </td>
+            <td
+              class="pb-6 pt-2"
+              data-testid="LinkCollectionTable__row__value"
+            >
+              <input
+                class="focus:outline-none"
+                name="example[0].value"
+                readonly=""
+                value="https://facebook.com"
+              />
+            </td>
+            <td
+              class="w-16 text-right pb-4"
+            >
+              <button
+                class="sc-AxjAm bBBiEi"
+                color="primary"
+                data-testid="LinkCollectionTable__remove-link"
+                type="button"
+              >
+                <div
+                  class="sc-AxirZ iQaTP"
+                  height="1em"
+                  width="1em"
+                >
+                  <svg>
+                    trash.svg
+                  </svg>
+                </div>
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="font-semibold border-b border-theme-neutral-200"
+            data-testid="LinkCollectionTable__row"
+          >
+            <td
+              class="w-16 text-center"
+            >
+              <input
+                class="sc-AxiKw fIRSaL"
+                color="success"
+                data-testid="LinkCollectionTable__row__option"
+                type="radio"
+              />
+            </td>
+            <td
+              class="w-40 py-6"
+              data-testid="LinkCollectionTable__row__type"
+            >
+              <input
+                class="hidden"
+                name="example[1].type"
+                readonly=""
+                value="instagram"
+              />
+              <span>
+                Instagram
+              </span>
+            </td>
+            <td
+              class="py-6"
+              data-testid="LinkCollectionTable__row__value"
+            >
+              <input
+                class="focus:outline-none"
+                name="example[1].value"
+                readonly=""
+                value="https://instagram.com"
+              />
+            </td>
+            <td
+              class="w-16 text-right false"
+            >
+              <button
+                class="sc-AxjAm bBBiEi"
+                color="primary"
+                data-testid="LinkCollectionTable__remove-link"
+                type="button"
+              >
+                <div
+                  class="sc-AxirZ iQaTP"
+                  height="1em"
+                  width="1em"
+                >
+                  <svg>
+                    trash.svg
+                  </svg>
+                </div>
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="font-semibold border-b border-theme-neutral-200"
+            data-testid="LinkCollectionTable__row"
+          >
+            <td
+              class="w-16 text-center"
+            />
+            <td
+              class="w-40 py-6"
+              data-testid="LinkCollectionTable__row__type"
+            >
+              <input
+                class="hidden"
+                name="example[2].type"
+                readonly=""
+                value="twitter"
+              />
+              <span>
+                Twitter
+              </span>
+            </td>
+            <td
+              class="py-6"
+              data-testid="LinkCollectionTable__row__value"
+            >
+              <input
+                class="focus:outline-none"
+                name="example[2].value"
+                readonly=""
+                value="https://twitter.com"
+              />
+            </td>
+            <td
+              class="w-16 text-right false"
+            >
+              <button
+                class="sc-AxjAm bBBiEi"
+                color="primary"
+                data-testid="LinkCollectionTable__remove-link"
+                type="button"
+              >
+                <div
+                  class="sc-AxirZ iQaTP"
+                  height="1em"
+                  width="1em"
+                >
+                  <svg>
+                    trash.svg
+                  </svg>
+                </div>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`LinkCollectionTable should delete link from DOM and form 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="LinkCollectionTable"
+  >
+    <div
+      class="sc-AxhCb tChBQ"
+      role="table"
+    >
+      <table
+        class="table-auto"
+      >
+        <thead>
+          <tr
+            role="row"
+          >
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--0"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                  Name
+                </div>
+                <div
+                  class="flex items-center ml-2 text-theme-color-neutral"
+                  data-testid="table__Sort"
+                >
+                  <div
+                    class="sc-AxirZ jMwzyA"
+                    height="12"
+                    width="15"
+                  >
+                    <svg>
+                      sort.svg
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </th>
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--1"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                  Link
+                </div>
+                <div
+                  class="flex items-center ml-2 text-theme-color-neutral"
+                  data-testid="table__Sort"
+                >
+                  <div
+                    class="sc-AxirZ jMwzyA"
+                    height="12"
+                    width="15"
+                  >
+                    <svg>
+                      sort.svg
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </th>
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--2"
+              role="columnheader"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                   
+                </div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          role="rowgroup"
+        >
+          <tr
+            class="font-semibold border-b border-theme-neutral-200"
+            data-testid="LinkCollectionTable__row"
+          >
+            <td
+              class="w-40 pb-6 pt-2"
+              data-testid="LinkCollectionTable__row__type"
+            >
+              <input
+                class="hidden"
+                name="example[0].type"
+                readonly=""
+                value="instagram"
+              />
+              <span>
+                Instagram
+              </span>
+            </td>
+            <td
+              class="pb-6 pt-2"
+              data-testid="LinkCollectionTable__row__value"
+            >
+              <input
+                class="focus:outline-none"
+                name="example[0].value"
+                readonly=""
+                value="https://instagram.com"
+              />
+            </td>
+            <td
+              class="w-16 text-right pb-4"
+            >
+              <button
+                class="sc-AxjAm bBBiEi"
+                color="primary"
+                data-testid="LinkCollectionTable__remove-link"
+                type="button"
+              >
+                <div
+                  class="sc-AxirZ iQaTP"
+                  height="1em"
+                  width="1em"
+                >
+                  <svg>
+                    trash.svg
+                  </svg>
+                </div>
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="font-semibold border-b border-theme-neutral-200"
+            data-testid="LinkCollectionTable__row"
+          >
+            <td
+              class="w-40 py-6"
+              data-testid="LinkCollectionTable__row__type"
+            >
+              <input
+                class="hidden"
+                name="example[1].type"
+                readonly=""
+                value="twitter"
+              />
+              <span>
+                Twitter
+              </span>
+            </td>
+            <td
+              class="py-6"
+              data-testid="LinkCollectionTable__row__value"
+            >
+              <input
+                class="focus:outline-none"
+                name="example[1].value"
+                readonly=""
+                value="https://twitter.com"
+              />
+            </td>
+            <td
+              class="w-16 text-right false"
+            >
+              <button
+                class="sc-AxjAm bBBiEi"
+                color="primary"
+                data-testid="LinkCollectionTable__remove-link"
+                type="button"
+              >
+                <div
+                  class="sc-AxirZ iQaTP"
+                  height="1em"
+                  width="1em"
+                >
+                  <svg>
+                    trash.svg
+                  </svg>
+                </div>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`LinkCollectionTable should display default links 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="LinkCollectionTable"
+  >
+    <div
+      class="sc-AxhCb tChBQ"
+      role="table"
+    >
+      <table
+        class="table-auto"
+      >
+        <thead>
+          <tr
+            role="row"
+          >
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--0"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                  Name
+                </div>
+                <div
+                  class="flex items-center ml-2 text-theme-color-neutral"
+                  data-testid="table__Sort"
+                >
+                  <div
+                    class="sc-AxirZ jMwzyA"
+                    height="12"
+                    width="15"
+                  >
+                    <svg>
+                      sort.svg
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </th>
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--1"
+              role="columnheader"
+              style="cursor: pointer;"
+              title="Toggle SortBy"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                  Link
+                </div>
+                <div
+                  class="flex items-center ml-2 text-theme-color-neutral"
+                  data-testid="table__Sort"
+                >
+                  <div
+                    class="sc-AxirZ jMwzyA"
+                    height="12"
+                    width="15"
+                  >
+                    <svg>
+                      sort.svg
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </th>
+            <th
+              class="text-sm text-left select-none text-theme-neutral"
+              colspan="1"
+              data-testid="table__th--2"
+              role="columnheader"
+            >
+              <div
+                class="flex flex-inline align-top "
+              >
+                <div>
+                   
+                </div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          role="rowgroup"
+        >
+          <tr
+            class="font-semibold border-b border-theme-neutral-200"
+            data-testid="LinkCollectionTable__row"
+          >
+            <td
+              class="w-40 pb-6 pt-2"
+              data-testid="LinkCollectionTable__row__type"
+            >
+              <input
+                class="hidden"
+                name="example[0].type"
+                readonly=""
+                value="facebook"
+              />
+              <span>
+                Facebook
+              </span>
+            </td>
+            <td
+              class="pb-6 pt-2"
+              data-testid="LinkCollectionTable__row__value"
+            >
+              <input
+                class="focus:outline-none"
+                name="example[0].value"
+                readonly=""
+                value="https://facebook.com"
+              />
+            </td>
+            <td
+              class="w-16 text-right pb-4"
+            >
+              <button
+                class="sc-AxjAm bBBiEi"
+                color="primary"
+                data-testid="LinkCollectionTable__remove-link"
+                type="button"
+              >
+                <div
+                  class="sc-AxirZ iQaTP"
+                  height="1em"
+                  width="1em"
+                >
+                  <svg>
+                    trash.svg
+                  </svg>
+                </div>
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="font-semibold border-b border-theme-neutral-200"
+            data-testid="LinkCollectionTable__row"
+          >
+            <td
+              class="w-40 py-6"
+              data-testid="LinkCollectionTable__row__type"
+            >
+              <input
+                class="hidden"
+                name="example[1].type"
+                readonly=""
+                value="instagram"
+              />
+              <span>
+                Instagram
+              </span>
+            </td>
+            <td
+              class="py-6"
+              data-testid="LinkCollectionTable__row__value"
+            >
+              <input
+                class="focus:outline-none"
+                name="example[1].value"
+                readonly=""
+                value="https://instagram.com"
+              />
+            </td>
+            <td
+              class="w-16 text-right false"
+            >
+              <button
+                class="sc-AxjAm bBBiEi"
+                color="primary"
+                data-testid="LinkCollectionTable__remove-link"
+                type="button"
+              >
+                <div
+                  class="sc-AxirZ iQaTP"
+                  height="1em"
+                  width="1em"
+                >
+                  <svg>
+                    trash.svg
+                  </svg>
+                </div>
+              </button>
+            </td>
+          </tr>
+          <tr
+            class="font-semibold border-b border-theme-neutral-200"
+            data-testid="LinkCollectionTable__row"
+          >
+            <td
+              class="w-40 py-6"
+              data-testid="LinkCollectionTable__row__type"
+            >
+              <input
+                class="hidden"
+                name="example[2].type"
+                readonly=""
+                value="twitter"
+              />
+              <span>
+                Twitter
+              </span>
+            </td>
+            <td
+              class="py-6"
+              data-testid="LinkCollectionTable__row__value"
+            >
+              <input
+                class="focus:outline-none"
+                name="example[2].value"
+                readonly=""
+                value="https://twitter.com"
+              />
+            </td>
+            <td
+              class="w-16 text-right false"
+            >
+              <button
+                class="sc-AxjAm bBBiEi"
+                color="primary"
+                data-testid="LinkCollectionTable__remove-link"
+                type="button"
+              >
+                <div
+                  class="sc-AxirZ iQaTP"
+                  height="1em"
+                  width="1em"
+                >
+                  <svg>
+                    trash.svg
+                  </svg>
+                </div>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</DocumentFragment>
+`;

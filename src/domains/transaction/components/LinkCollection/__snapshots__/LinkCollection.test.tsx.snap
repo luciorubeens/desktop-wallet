@@ -125,13 +125,14 @@ exports[`LinkCollection should render with fields 1`] = `
             </label>
             <input
               class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 "
-              data-testid="Input"
+              data-testid="LinkCollectionForm__value"
               name="value"
             />
           </fieldset>
           <button
             class="sc-AxiKw jBPYDN col-span-2"
             color="primary"
+            data-testid="LinkCollectionForm__submit"
             type="submit"
           >
             Add Link
@@ -242,6 +243,7 @@ exports[`LinkCollection should render with fields 1`] = `
                 >
                   <td
                     class="w-40 pb-6 pt-2"
+                    data-testid="LinkCollectionTable__row__type"
                   >
                     <input
                       class="hidden"
@@ -255,6 +257,7 @@ exports[`LinkCollection should render with fields 1`] = `
                   </td>
                   <td
                     class="pb-6 pt-2"
+                    data-testid="LinkCollectionTable__row__value"
                   >
                     <input
                       class="focus:outline-none"
@@ -290,6 +293,7 @@ exports[`LinkCollection should render with fields 1`] = `
                 >
                   <td
                     class="w-40 py-6"
+                    data-testid="LinkCollectionTable__row__type"
                   >
                     <input
                       class="hidden"
@@ -298,11 +302,12 @@ exports[`LinkCollection should render with fields 1`] = `
                       value="instagram"
                     />
                     <span>
-                      TRANSACTION.LINK_TYPES.INSTAGRAM
+                      Instagram
                     </span>
                   </td>
                   <td
                     class="py-6"
+                    data-testid="LinkCollectionTable__row__value"
                   >
                     <input
                       class="focus:outline-none"
@@ -467,13 +472,14 @@ exports[`LinkCollection should render without fields 1`] = `
             </label>
             <input
               class="sc-AxhUy jqmzti overflow-hidden w-full bg-theme-background appearance-none rounded border border-theme-neutral-300 text-theme-neutral-900 transition-colors duration-200 px-4 py-3 "
-              data-testid="Input"
+              data-testid="LinkCollectionForm__value"
               name="value"
             />
           </fieldset>
           <button
             class="sc-AxiKw jBPYDN col-span-2"
             color="primary"
+            data-testid="LinkCollectionForm__submit"
             type="submit"
           >
             Add Link

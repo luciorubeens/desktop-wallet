@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkCollectionContainer should render children 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="LinkCollectionContainer"
+  >
+    <div
+      class="flex items-center justify-between cursor-pointer"
+      data-testid="LinkCollectionContainer__header"
+    >
+      <span
+        class="text-lg font-semibold"
+      >
+        Test Title
+      </span>
+      <div
+        data-testid="LinkCollectionContainer__collapse-toggle"
+      >
+        <div
+          class="sc-AxjAm iepfoc flex items-center justify-center w-5 h-5 rounded-full text-theme-primary bg-theme-primary-contrast"
+          height="10"
+          width="10"
+        >
+          <svg>
+            chevron-down.svg
+          </svg>
+        </div>
+      </div>
+    </div>
+    <p
+      class="mt-2 text-theme-neutral-dark"
+      data-testid="LinkCollectionContainer__description"
+    >
+      Test Description
+    </p>
+    <div
+      aria-hidden="true"
+      data-testid="LinkCollectionContainer__collapse"
+      style="height: 0px; max-height: auto; opacity: 0; overflow: hidden;"
+    >
+      <div
+        class="mt-4"
+      >
+        <p>
+          Test
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

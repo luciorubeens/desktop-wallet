@@ -43,10 +43,10 @@ export const LinkCollectionForm = ({ selectOptions, append, itemLabel }: Props) 
 
 			<FormField name="value">
 				<FormLabel label={t("COMMON.LINK")} />
-				<Input ref={register({ required: true })} />
+				<Input data-testid="LinkCollectionForm__value" ref={register({ required: true })} />
 			</FormField>
 
-			<Button className="col-span-2" variant="plain" type="submit">
+			<Button data-testid="LinkCollectionForm__submit" className="col-span-2" variant="plain" type="submit">
 				{t("TRANSACTION.ADD_LINK")}
 			</Button>
 		</Form>

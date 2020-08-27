@@ -103,6 +103,7 @@ export const translations: { [key: string]: any } = {
 		TWITTER: "Twitter",
 		VIMEO: "Vimeo",
 		YOUTUBE: "YouTube",
+		INSTAGRAM: "Instagram",
 	},
 
 	PAGE_REGISTRATION: {
