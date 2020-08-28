@@ -13,13 +13,14 @@ import { TabPanel, Tabs } from "app/components/Tabs";
 import { TextArea } from "app/components/TextArea";
 import { TransactionDetail } from "app/components/TransactionDetail";
 import { useActiveProfile } from "app/hooks/env";
+import { EntityMedia, EntitySocialMedia, EntitySourceControl } from "data/aip36";
 import { InputFee } from "domains/transaction/components/InputFee";
 import { LedgerConfirmation } from "domains/transaction/components/LedgerConfirmation";
 import { LinkCollection } from "domains/transaction/components/LinkCollection";
 import { LinkList } from "domains/transaction/components/LinkList";
 import { TotalAmountBox } from "domains/transaction/components/TotalAmountBox";
 import { TransactionSuccessful } from "domains/transaction/components/TransactionSuccessful";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
@@ -29,8 +30,10 @@ type UpdateRegistrationProps = {
 };
 
 const FirstStep = ({ form }: { form: any }) => {
-	const { register } = form;
+	const { register, control } = form;
 	const { t } = useTranslation();
+	// TODO: Default value
+	const [checkedAvatarIndex, setCheckedAvatarIndex] = useState<number | undefined>(undefined);
 
 	return (
 		<div data-testid="UpdateRegistration__first-step">
@@ -59,42 +62,52 @@ const FirstStep = ({ form }: { form: any }) => {
 
 				<TransactionDetail className="pb-8">
 					<LinkCollection
+						name="sourceControl"
+						control={control}
+						registerRef={register}
 						title={t("TRANSACTION.REPOSITORIES.TITLE")}
 						description={t("TRANSACTION.REPOSITORIES.DESCRIPTION")}
-						types={[
-							{ label: "BitBucket", value: "bitbucket" },
-							{ label: "GitHub", value: "github" },
-							{ label: "GitLab", value: "gitlab" },
-						]}
-						typeName="repository"
+						selectOptions={EntitySourceControl.map((source) => ({
+							label: source.name,
+							value: source.value,
+						}))}
+						itemLabel="repository"
 					/>
 				</TransactionDetail>
 
 				<TransactionDetail className="pb-8">
 					<LinkCollection
+						registerRef={register}
+						control={control}
+						name="socialMedia"
 						title={t("TRANSACTION.SOCIAL_MEDIA.TITLE")}
 						description={t("TRANSACTION.SOCIAL_MEDIA.DESCRIPTION")}
-						types={[
-							{ label: "Facebook", value: "facebook" },
-							{ label: "Twitter", value: "twitter" },
-							{ label: "LinkedIn", value: "linkedin" },
-						]}
-						typeName="media"
+						selectOptions={EntitySocialMedia.map((source) => ({
+							label: source.name,
+							value: source.value,
+						}))}
+						itemLabel="media"
 					/>
 				</TransactionDetail>
 
 				<TransactionDetail className="pb-8">
 					<LinkCollection
+						name="media"
+						registerRef={register}
+						control={control}
 						title={t("TRANSACTION.PHOTO_VIDEO.TITLE")}
 						description={t("TRANSACTION.PHOTO_VIDEO.DESCRIPTION")}
-						types={[
-							{ label: "YouTube", value: "youtube" },
-							{ label: "Vimeo", value: "vimeo" },
-							{ label: "Flickr", value: "flickr" },
-						]}
-						typeName="files"
-						selectionTypes={["flickr"]}
-						selectionTypeTitle="Avatar"
+						selectOptions={EntityMedia.map((source) => ({
+							label: source.name,
+							value: source.value,
+						}))}
+						itemLabel="files"
+						checkOptionsNames={EntityMedia.filter((source) => source.type === "image").map(
+							(source) => source.name,
+						)}
+						checkColumnTitle="Avatar"
+						checkedIndex={checkedAvatarIndex}
+						onChecked={setCheckedAvatarIndex}
 					/>
 				</TransactionDetail>
 

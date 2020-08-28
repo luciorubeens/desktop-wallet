@@ -14,16 +14,16 @@ type Props = {
 	remove: (index: number) => void;
 	registerRef: (options?: ValidationRules) => (ref: HTMLInputElement | null) => void;
 
-	checkOptionsTypes?: string[];
+	checkOptionsNames?: string[];
 	checkColumnTitle?: string;
-	onChecked?: (link: EntityLink) => void;
+	onChecked?: (index: number) => void;
 	checkedIndex?: number;
 };
 
 export const LinkCollectionTable = ({
 	remove,
 	checkColumnTitle,
-	checkOptionsTypes,
+	checkOptionsNames,
 	registerRef,
 	fields,
 	checkedIndex,
@@ -65,11 +65,11 @@ export const LinkCollectionTable = ({
 					>
 						{checkColumnTitle && (
 							<td className="w-16 text-center">
-								{checkOptionsTypes?.includes(rowData.type) && (
+								{checkOptionsNames?.includes(rowData.type) && (
 									<RadioButton
 										data-testid="LinkCollectionTable__row__option"
 										checked={checkedIndex === rowIndex}
-										onChange={() => onChecked?.(rowData)}
+										onChange={() => onChecked?.(rowIndex)}
 									/>
 								)}
 							</td>

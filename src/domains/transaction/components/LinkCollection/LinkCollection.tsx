@@ -15,9 +15,9 @@ type Props = {
 	registerRef: (options?: ValidationRules) => (ref: HTMLInputElement | null) => void;
 	control: Control<Record<string, any>>;
 
-	checkOptionsTypes?: string[];
+	checkOptionsNames?: string[];
 	checkColumnTitle?: string;
-	onChecked?: (link: EntityLink) => void;
+	onChecked?: (index: number) => void;
 	checkedIndex?: number;
 };
 
@@ -30,7 +30,7 @@ export const LinkCollection = ({
 	control,
 	itemLabel,
 	checkColumnTitle,
-	checkOptionsTypes,
+	checkOptionsNames,
 	checkedIndex,
 	onChecked,
 }: Props) => {
@@ -59,7 +59,7 @@ export const LinkCollection = ({
 							name={name}
 							registerRef={registerRef}
 							checkColumnTitle={checkColumnTitle}
-							checkOptionsTypes={checkOptionsTypes}
+							checkOptionsNames={checkOptionsNames}
 							checkedIndex={checkedIndex}
 							onChecked={onChecked}
 						/>

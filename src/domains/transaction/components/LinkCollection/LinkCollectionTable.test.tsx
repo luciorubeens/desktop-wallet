@@ -89,7 +89,7 @@ describe("LinkCollectionTable", () => {
 			onOptionChange,
 		}: {
 			optionChecked?: number;
-			onOptionChange?: (data: any) => void;
+			onOptionChange?: (index: number) => void;
 		}) => {
 			const name = "example";
 			const { control, register } = useForm({
@@ -107,7 +107,7 @@ describe("LinkCollectionTable", () => {
 
 			return (
 				<LinkCollectionTable
-					checkOptionsTypes={["facebook", "instagram"]}
+					checkOptionsNames={["facebook", "instagram"]}
 					checkColumnTitle="Avatar"
 					checkedIndex={optionChecked}
 					onChecked={onOptionChange}
@@ -142,7 +142,7 @@ describe("LinkCollectionTable", () => {
 
 			fireEvent.click(getAllByTestId("LinkCollectionTable__row__option")[0]);
 
-			expect(onOptionChange).toHaveBeenCalledWith({ type: "facebook", value: "https://facebook.com" });
+			expect(onOptionChange).toHaveBeenCalledWith(0);
 			expect(asFragment()).toMatchSnapshot();
 		});
 	});

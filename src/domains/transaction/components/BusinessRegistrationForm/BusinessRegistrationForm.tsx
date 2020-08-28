@@ -9,7 +9,7 @@ import { Label } from "app/components/Label";
 import { TabPanel, Tabs } from "app/components/Tabs";
 import { TextArea } from "app/components/TextArea";
 import { TransactionDetail } from "app/components/TransactionDetail";
-import { EntitySourceControl } from "data/aip36";
+import { EntityMedia, EntitySocialMedia, EntitySourceControl } from "data/aip36";
 import { InputFee } from "domains/transaction/components/InputFee";
 import { LinkCollection } from "domains/transaction/components/LinkCollection";
 import { LinkList } from "domains/transaction/components/LinkList";
@@ -19,13 +19,14 @@ import {
 	RegistrationForm,
 	RegistrationTransactionDetailsOptions,
 } from "domains/transaction/pages/Registration/Registration.models";
-import React from "react";
+import React, { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
 const SecondStep = () => {
 	const { t } = useTranslation();
 	const { register, control } = useFormContext();
+	const [checkedAvatarIndex, setCheckedAvatarIndex] = useState<number | undefined>(undefined);
 
 	return (
 		<div data-testid="BusinessRegistrationForm__step--second">
@@ -72,11 +73,10 @@ const SecondStep = () => {
 						name="socialMedia"
 						title={t("TRANSACTION.SOCIAL_MEDIA.TITLE")}
 						description={t("TRANSACTION.SOCIAL_MEDIA.DESCRIPTION")}
-						selectOptions={[
-							{ label: "Facebook", value: "facebook" },
-							{ label: "Twitter", value: "twitter" },
-							{ label: "LinkedIn", value: "linkedin" },
-						]}
+						selectOptions={EntitySocialMedia.map((source) => ({
+							label: source.name,
+							value: source.value,
+						}))}
 						itemLabel="media"
 					/>
 				</TransactionDetail>
@@ -85,17 +85,20 @@ const SecondStep = () => {
 					<LinkCollection
 						registerRef={register}
 						control={control}
-						name=""
+						name="media"
 						title={t("TRANSACTION.PHOTO_VIDEO.TITLE")}
 						description={t("TRANSACTION.PHOTO_VIDEO.DESCRIPTION")}
-						selectOptions={[
-							{ label: "YouTube", value: "youtube" },
-							{ label: "Vimeo", value: "vimeo" },
-							{ label: "Flickr", value: "flickr" },
-						]}
+						selectOptions={EntityMedia.map((source) => ({
+							label: source.name,
+							value: source.value,
+						}))}
 						itemLabel="files"
-						checkOptionsTypes={["flickr"]}
+						checkOptionsNames={EntityMedia.filter((source) => source.type === "image").map(
+							(source) => source.name,
+						)}
 						checkColumnTitle="Avatar"
+						checkedIndex={checkedAvatarIndex}
+						onChecked={setCheckedAvatarIndex}
 					/>
 				</TransactionDetail>
 
