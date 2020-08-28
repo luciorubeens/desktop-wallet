@@ -14,9 +14,26 @@ type Props = {
 	name: string;
 	registerRef: (options?: ValidationRules) => (ref: HTMLInputElement | null) => void;
 	control: Control<Record<string, any>>;
+
+	checkOptionsTypes?: string[];
+	checkColumnTitle?: string;
+	onChecked?: (link: EntityLink) => void;
+	checkedIndex?: number;
 };
 
-export const LinkCollection = ({ selectOptions, title, description, name, registerRef, control, itemLabel }: Props) => {
+export const LinkCollection = ({
+	selectOptions,
+	title,
+	description,
+	name,
+	registerRef,
+	control,
+	itemLabel,
+	checkColumnTitle,
+	checkOptionsTypes,
+	checkedIndex,
+	onChecked,
+}: Props) => {
 	const { fields, append, remove } = useFieldArray({
 		control,
 		name,
@@ -41,6 +58,10 @@ export const LinkCollection = ({ selectOptions, title, description, name, regist
 							fields={fields as EntityLink[]}
 							name={name}
 							registerRef={registerRef}
+							checkColumnTitle={checkColumnTitle}
+							checkOptionsTypes={checkOptionsTypes}
+							checkedIndex={checkedIndex}
+							onChecked={onChecked}
 						/>
 					</>
 				) : (

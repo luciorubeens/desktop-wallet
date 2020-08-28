@@ -79,33 +79,27 @@ export const EntitySocialMedia = [
 	},
 ];
 
-export const EntitySourceMedia = [
+export const EntityMedia = [
 	{
+		type: "image",
 		value: "flickr",
 		name: "Flickr",
 		url: "https://flickr.com",
 	},
 	{
+		type: "image",
 		value: "imgur",
 		name: "Imgur",
 		url: "https://imgur.com",
 	},
 	{
-		value: "github",
-		name: "GitHub",
-		url: "https://github.com",
-	},
-	{
-		value: "gitlab",
-		name: "GitLab",
-		url: "https://gitlab.com",
-	},
-	{
+		type: "video",
 		value: "youtube",
 		name: "YouTube",
 		url: "https://youtube.com",
 	},
 	{
+		type: "video",
 		value: "vimeo",
 		name: "Vimeo",
 		url: "https://vimeo.com",

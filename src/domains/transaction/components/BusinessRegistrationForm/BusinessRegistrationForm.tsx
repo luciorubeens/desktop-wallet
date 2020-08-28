@@ -25,7 +25,7 @@ import { useTranslation } from "react-i18next";
 
 const SecondStep = () => {
 	const { t } = useTranslation();
-	const { register } = useFormContext();
+	const { register, control } = useFormContext();
 
 	return (
 		<div data-testid="BusinessRegistrationForm__step--second">
@@ -52,38 +52,50 @@ const SecondStep = () => {
 
 				<TransactionDetail className="pb-8">
 					<LinkCollection
+						registerRef={register}
+						control={control}
+						name="sourceControl"
 						title={t("TRANSACTION.REPOSITORIES.TITLE")}
 						description={t("TRANSACTION.REPOSITORIES.DESCRIPTION")}
-						types={EntitySourceControl.map((source) => ({ label: source.name, value: source.value }))}
-						typeName="repository"
+						selectOptions={EntitySourceControl.map((source) => ({
+							label: source.name,
+							value: source.value,
+						}))}
+						itemLabel="repository"
 					/>
 				</TransactionDetail>
 
 				<TransactionDetail className="pb-8">
 					<LinkCollection
+						registerRef={register}
+						control={control}
+						name="socialMedia"
 						title={t("TRANSACTION.SOCIAL_MEDIA.TITLE")}
 						description={t("TRANSACTION.SOCIAL_MEDIA.DESCRIPTION")}
-						types={[
+						selectOptions={[
 							{ label: "Facebook", value: "facebook" },
 							{ label: "Twitter", value: "twitter" },
 							{ label: "LinkedIn", value: "linkedin" },
 						]}
-						typeName="media"
+						itemLabel="media"
 					/>
 				</TransactionDetail>
 
 				<TransactionDetail className="pb-8">
 					<LinkCollection
+						registerRef={register}
+						control={control}
+						name=""
 						title={t("TRANSACTION.PHOTO_VIDEO.TITLE")}
 						description={t("TRANSACTION.PHOTO_VIDEO.DESCRIPTION")}
-						types={[
+						selectOptions={[
 							{ label: "YouTube", value: "youtube" },
 							{ label: "Vimeo", value: "vimeo" },
 							{ label: "Flickr", value: "flickr" },
 						]}
-						typeName="files"
-						selectionTypes={["flickr"]}
-						selectionTypeTitle="Avatar"
+						itemLabel="files"
+						checkOptionsTypes={["flickr"]}
+						checkColumnTitle="Avatar"
 					/>
 				</TransactionDetail>
 

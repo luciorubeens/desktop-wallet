@@ -107,10 +107,10 @@ describe("LinkCollectionTable", () => {
 
 			return (
 				<LinkCollectionTable
-					optionsTypes={["facebook", "instagram"]}
-					optionsTypesTitle="Avatar"
-					optionChecked={optionChecked}
-					onOptionChange={onOptionChange}
+					checkOptionsTypes={["facebook", "instagram"]}
+					checkColumnTitle="Avatar"
+					checkedIndex={optionChecked}
+					onChecked={onOptionChange}
 					remove={remove}
 					registerRef={register}
 					fields={fields as any}

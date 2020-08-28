@@ -21,28 +21,12 @@ exports[`LinkCollectionTable With Options should emit event on change 1`] = `
               colspan="1"
               data-testid="table__th--0"
               role="columnheader"
-              style="cursor: pointer;"
-              title="Toggle SortBy"
             >
               <div
                 class="flex flex-inline align-top "
               >
                 <div>
                   Avatar
-                </div>
-                <div
-                  class="flex items-center ml-2 text-theme-color-neutral"
-                  data-testid="table__Sort"
-                >
-                  <div
-                    class="sc-AxirZ jMwzyA"
-                    height="12"
-                    width="15"
-                  >
-                    <svg>
-                      sort.svg
-                    </svg>
-                  </div>
                 </div>
               </div>
             </th>
@@ -327,28 +311,12 @@ exports[`LinkCollectionTable With Options should show checked option 1`] = `
               colspan="1"
               data-testid="table__th--0"
               role="columnheader"
-              style="cursor: pointer;"
-              title="Toggle SortBy"
             >
               <div
                 class="flex flex-inline align-top "
               >
                 <div>
                   Avatar
-                </div>
-                <div
-                  class="flex items-center ml-2 text-theme-color-neutral"
-                  data-testid="table__Sort"
-                >
-                  <div
-                    class="sc-AxirZ jMwzyA"
-                    height="12"
-                    width="15"
-                  >
-                    <svg>
-                      sort.svg
-                    </svg>
-                  </div>
                 </div>
               </div>
             </th>
@@ -633,28 +601,12 @@ exports[`LinkCollectionTable With Options should show with options column 1`] = 
               colspan="1"
               data-testid="table__th--0"
               role="columnheader"
-              style="cursor: pointer;"
-              title="Toggle SortBy"
             >
               <div
                 class="flex flex-inline align-top "
               >
                 <div>
                   Avatar
-                </div>
-                <div
-                  class="flex items-center ml-2 text-theme-color-neutral"
-                  data-testid="table__Sort"
-                >
-                  <div
-                    class="sc-AxirZ jMwzyA"
-                    height="12"
-                    width="15"
-                  >
-                    <svg>
-                      sort.svg
-                    </svg>
-                  </div>
                 </div>
               </div>
             </th>

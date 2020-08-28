@@ -14,30 +14,29 @@ type Props = {
 	remove: (index: number) => void;
 	registerRef: (options?: ValidationRules) => (ref: HTMLInputElement | null) => void;
 
-	optionsTypes?: string[];
-	optionsTypesTitle?: string;
-	onOptionChange?: (link: EntityLink) => void;
-	optionChecked?: number;
+	checkOptionsTypes?: string[];
+	checkColumnTitle?: string;
+	onChecked?: (link: EntityLink) => void;
+	checkedIndex?: number;
 };
 
 export const LinkCollectionTable = ({
 	remove,
-	optionsTypesTitle,
-	optionsTypes,
+	checkColumnTitle,
+	checkOptionsTypes,
 	registerRef,
 	fields,
-	optionChecked,
-	onOptionChange,
+	checkedIndex,
+	onChecked,
 	name,
 }: Props) => {
 	const { t } = useTranslation();
 
 	const columns = [];
 
-	if (optionsTypesTitle) {
+	if (checkColumnTitle) {
 		columns.push({
-			Header: optionsTypesTitle,
-			accessor: "isSelected",
+			Header: checkColumnTitle,
 		});
 	}
 
@@ -48,7 +47,7 @@ export const LinkCollectionTable = ({
 		},
 		{
 			Header: t("COMMON.LINK"),
-			accessor: "link",
+			accessor: "value",
 		},
 		{
 			Header: " ",
@@ -64,13 +63,13 @@ export const LinkCollectionTable = ({
 						key={rowData.value}
 						className="font-semibold border-b border-theme-neutral-200"
 					>
-						{optionsTypesTitle && (
+						{checkColumnTitle && (
 							<td className="w-16 text-center">
-								{optionsTypes?.includes(rowData.type) && (
+								{checkOptionsTypes?.includes(rowData.type) && (
 									<RadioButton
 										data-testid="LinkCollectionTable__row__option"
-										checked={optionChecked === rowIndex}
-										onChange={() => onOptionChange?.(rowData)}
+										checked={checkedIndex === rowIndex}
+										onChange={() => onChecked?.(rowData)}
 									/>
 								)}
 							</td>
