@@ -1,3 +1,4 @@
+import { ReadWriteWallet } from "@arkecosystem/platform-sdk-profiles";
 import { BigNumber } from "@arkecosystem/platform-sdk-support";
 import { Address } from "app/components/Address";
 import { Avatar } from "app/components/Avatar";
@@ -6,6 +7,7 @@ import { FormField, FormLabel } from "app/components/Form";
 import { Icon } from "app/components/Icon";
 import { Input } from "app/components/Input";
 import { Label } from "app/components/Label";
+import { Link } from "app/components/Link";
 import { TabPanel, Tabs } from "app/components/Tabs";
 import { TextArea } from "app/components/TextArea";
 import { TransactionDetail } from "app/components/TransactionDetail";
@@ -23,9 +25,11 @@ import React, { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-const SecondStep = () => {
+const SecondStep = ({ feeOptions }: any) => {
 	const { t } = useTranslation();
-	const { register, control } = useFormContext();
+	const { register, control, getValues } = useFormContext();
+	const fee = getValues("fee") || null;
+
 	const [checkedAvatarIndex, setCheckedAvatarIndex] = useState<number | undefined>(undefined);
 
 	return (
@@ -35,17 +39,17 @@ const SecondStep = () => {
 
 			<div>
 				<div className="pb-8 mt-8">
-					<FormField name="meta.displayName" className="font-normal">
+					<FormField name="ipfsData.meta.displayName" className="font-normal">
 						<FormLabel>{t("TRANSACTION.NAME")}</FormLabel>
 						<Input type="text" ref={register} />
 					</FormField>
 
-					<FormField name="meta.description" className="mt-8 font-normal">
+					<FormField name="ipfsData.meta.description" className="mt-8 font-normal">
 						<FormLabel>{t("TRANSACTION.DESCRIPTION")}</FormLabel>
 						<TextArea ref={register} />
 					</FormField>
 
-					<FormField name="meta.website" className="mt-8 font-normal">
+					<FormField name="ipfsData.meta.website" className="mt-8 font-normal">
 						<FormLabel>{t("TRANSACTION.WEBSITE")}</FormLabel>
 						<Input type="website" ref={register} />
 					</FormField>
@@ -55,7 +59,7 @@ const SecondStep = () => {
 					<LinkCollection
 						registerRef={register}
 						control={control}
-						name="sourceControl"
+						name="ipfsData.sourceControl"
 						title={t("TRANSACTION.REPOSITORIES.TITLE")}
 						description={t("TRANSACTION.REPOSITORIES.DESCRIPTION")}
 						selectOptions={EntitySourceControl.map((source) => ({
@@ -70,7 +74,7 @@ const SecondStep = () => {
 					<LinkCollection
 						registerRef={register}
 						control={control}
-						name="socialMedia"
+						name="ipfsData.socialMedia"
 						title={t("TRANSACTION.SOCIAL_MEDIA.TITLE")}
 						description={t("TRANSACTION.SOCIAL_MEDIA.DESCRIPTION")}
 						selectOptions={EntitySocialMedia.map((source) => ({
@@ -105,12 +109,7 @@ const SecondStep = () => {
 				<TransactionDetail className="pt-6 pb-0">
 					<FormField name="fee">
 						<FormLabel>{t("TRANSACTION.TRANSACTION_FEE")}</FormLabel>
-						<InputFee
-							defaultValue={(25 * 1e8).toFixed(0)}
-							min={(1 * 1e8).toFixed(0)}
-							max={(100 * 1e8).toFixed(0)}
-							step={1}
-						/>
+						<InputFee {...feeOptions} defaultValue={fee || 0} value={fee || 0} step={0.01} ref={register} />
 					</FormField>
 				</TransactionDetail>
 			</div>
@@ -118,27 +117,10 @@ const SecondStep = () => {
 	);
 };
 
-const ThirdStep = () => {
+const ThirdStep = ({ wallet }: { wallet: ReadWriteWallet }) => {
 	const { t } = useTranslation();
-
-	const links = [
-		{
-			link: "http://github.com/robank",
-			type: "github",
-		},
-		{
-			link: "http://gitlab.com/robank",
-			type: "gitlab",
-		},
-		{
-			link: "http://bitbucket.com/robank",
-			type: "bitbucket",
-		},
-		{
-			link: "http://npmjs.com/robank",
-			type: "npm",
-		},
-	];
+	const { getValues } = useFormContext();
+	const { fee, meta, ipfsData } = getValues();
 
 	return (
 		<div data-testid="BusinessRegistrationForm__step--third">
@@ -171,7 +153,7 @@ const ThirdStep = () => {
 							<span className="text-sm">{t("TRANSACTION.YOUR_ADDRESS")}</span>
 						</Label>
 					</div>
-					<Address address="AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK" walletName={"ROBank"} />
+					<Address address={wallet.address()} walletName={wallet.alias()} />
 				</TransactionDetail>
 
 				<TransactionDetail
@@ -187,39 +169,45 @@ const ThirdStep = () => {
 					Business Registration
 				</TransactionDetail>
 
-				<TransactionDetail label={t("TRANSACTION.NAME")}>ROBank Eco</TransactionDetail>
+				{ipfsData?.meta?.displayName && (
+					<TransactionDetail label={t("TRANSACTION.NAME")}>{meta.displayName}</TransactionDetail>
+				)}
 
-				<TransactionDetail label={t("TRANSACTION.DESCRIPTION")}>Not a trustworthy bank</TransactionDetail>
+				{ipfsData?.meta?.description && (
+					<TransactionDetail label={t("TRANSACTION.DESCRIPTION")}>{meta.description}</TransactionDetail>
+				)}
 
-				<TransactionDetail label={t("TRANSACTION.WEBSITE")}>
-					<a href="http://robank.com" target="_blank" rel="noopener noreferrer" className="link">
-						http://robank.com
-					</a>
-				</TransactionDetail>
+				{ipfsData?.meta?.website && (
+					<TransactionDetail label={t("TRANSACTION.WEBSITE")}>
+						<Link to={meta.website} isExternal />
+					</TransactionDetail>
+				)}
 
-				<TransactionDetail className="mb-2">
-					<LinkList
-						title="Repository"
-						description="Show your projects through the repository"
-						links={links}
-					/>
-				</TransactionDetail>
+				{ipfsData?.sourceControl && (
+					<TransactionDetail className="mb-2">
+						<LinkList
+							title="Repository"
+							description="Show your projects through the repository"
+							links={ipfsData.sourceControl}
+						/>
+					</TransactionDetail>
+				)}
 
 				<div>
-					<TotalAmountBox amount={BigNumber.ZERO} fee={BigNumber.ZERO} />
+					<TotalAmountBox amount={BigNumber.ZERO} fee={BigNumber.make(fee)} />
 				</div>
 			</div>
 		</div>
 	);
 };
 
-const component = ({ activeTab }: RegistrationComponent) => (
+const component = ({ activeTab, wallet, feeOptions }: RegistrationComponent) => (
 	<Tabs activeId={activeTab}>
 		<TabPanel tabId={2}>
-			<SecondStep />
+			<SecondStep feeOptions={feeOptions} />
 		</TabPanel>
 		<TabPanel tabId={3}>
-			<ThirdStep />
+			<ThirdStep wallet={wallet} />
 		</TabPanel>
 	</Tabs>
 );
@@ -253,10 +241,13 @@ export const BusinessRegistrationForm: RegistrationForm = {
 	tabSteps: 2,
 	component,
 	transactionDetails,
-	formFields: [],
+	formFields: ["ipfsData", "fee", "media"],
 
 	// eslint-disable-next-line @typescript-eslint/require-await
-	signTransaction: async ({ handleNext }) => {
+	signTransaction: async ({ handleNext, form, setTransaction }) => {
+		const { getValues } = form;
+		const { ipfsData, fee, media } = getValues();
+
 		handleNext();
 	},
 };
