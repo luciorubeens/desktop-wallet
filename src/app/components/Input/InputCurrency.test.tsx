@@ -23,7 +23,7 @@ describe("InputCurrency", () => {
 			});
 		});
 
-		expect(onChange).toHaveBeenCalledWith("12300000000");
+		expect(onChange).toHaveBeenCalledWith({ value: "12300000000", display: "123" });
 	});
 
 	it("should accept a custom magnitude", () => {
@@ -39,7 +39,7 @@ describe("InputCurrency", () => {
 			});
 		});
 
-		expect(onChange).toHaveBeenCalledWith("12300");
+		expect(onChange).toHaveBeenCalledWith({ value: "12300", display: "123" });
 	});
 
 	it("should not allow letters", () => {
@@ -55,7 +55,7 @@ describe("InputCurrency", () => {
 			});
 		});
 
-		expect(onChange).toHaveBeenCalledWith("123");
+		expect(onChange).toHaveBeenCalledWith({ value: "123", display: "123" });
 	});
 
 	it("should format with a default value", () => {
@@ -68,7 +68,7 @@ describe("InputCurrency", () => {
 	it("should work with a controlled value", () => {
 		const Component = () => {
 			const [value, setValue] = useState("0.04");
-			return <InputCurrency value={value} onChange={setValue} />;
+			return <InputCurrency value={value} onChange={(output) => setValue(output.display)} />;
 		};
 		render(<Component />);
 		const input = screen.getByRole("textbox");
@@ -83,8 +83,6 @@ describe("InputCurrency", () => {
 			});
 		});
 
-		// TODO: Should not fail
-		// As the output should match the input for a controlled case
 		expect(input).toHaveValue("1.2");
 	});
 });
