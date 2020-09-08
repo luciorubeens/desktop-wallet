@@ -13,7 +13,7 @@ export const Default = () => {
 
 	return (
 		<div className="max-w-lg">
-			<InputRange {...fees} defaultValue={value} step={0.01} onChange={(toshi: any) => setValue(toshi)} />
+			<InputRange {...fees} value={value} step={0.01} onChange={(output) => setValue(output.display)} />
 
 			{value}
 		</div>

@@ -1,77 +1,86 @@
+import { Currency } from "@arkecosystem/platform-sdk-intl";
 import { BigNumber } from "@arkecosystem/platform-sdk-support";
 import { Range } from "app/components/Range";
-import React, { useEffect } from "react";
+import React, { useCallback, useLayoutEffect, useMemo, useState } from "react";
 import { getTrackBackground } from "react-range";
 
 import { InputCurrency } from "./InputCurrency";
 import { InputGroup } from "./InputGroup";
 
+export type DisplayValue = {
+	display: string;
+	value: string;
+};
+
 type Props = {
-	defaultValue: string;
-	value?: string;
-	min: number;
-	max: number;
+	value: string;
+	min: string | number;
+	max: string | number;
 	step: number;
 	name?: string;
 	magnitude?: number;
-	onChange?: (value: string) => void;
+	onChange?: (output: DisplayValue) => void;
 };
 
-// TODO: tidy up storage of amount (why array of values?)
 export const InputRange = React.forwardRef<HTMLInputElement, Props>(
-	({ min, max, step, defaultValue, magnitude, onChange, value }: Props, ref) => {
-		const [values, setValues] = React.useState<number[]>([BigNumber.make(defaultValue).divide(1e8).toNumber()]);
-		const fraction = Math.pow(10, magnitude! * -1);
+	({ step, value, magnitude, onChange, ...props }: Props, ref) => {
+		const [displayValue, setDisplayValue] = useState<DisplayValue>();
+		const human = BigNumber.make(displayValue?.display || value);
+		const max = useMemo(() => BigNumber.make(props.max), [props.max]);
+		const min = BigNumber.make(props.min);
+		const rangeValues = [human.toNumber()];
 
-		const handleInput = (value: string) => {
-			if (BigNumber.make(value).divide(1e8).toNumber() > max) {
-				value = BigNumber.make(max).times(1e8).toFixed(0);
+		const updateDisplayValue = useCallback(
+			(value: string) => {
+				const output = Currency.fromString(value, magnitude);
+				setDisplayValue(output);
+				onChange?.(output);
+			},
+			[onChange, magnitude],
+		);
+
+		const handleInput = (output: DisplayValue) => {
+			if (max.isLessThan(output.display)) {
+				return updateDisplayValue(max.toString());
 			}
-
-			const amount = BigNumber.make(value).times(fraction);
-			setValues([amount.toNumber()]);
-			onChange?.(amount.toFixed(0));
+			setDisplayValue(output);
+			onChange?.(output);
 		};
 
 		const handleRange = (values: number[]) => {
-			const amount = BigNumber.make(values[0]).divide(fraction).toFixed(0);
-			setValues(values);
-			onChange?.(amount);
+			const output = Currency.fromString(values[0].toString(), magnitude);
+			setDisplayValue(output);
+			onChange?.(output);
 		};
 
-		const trackBackgroundMinValue = values[0];
-		const rangeValues = [Math.min(values[0], max)];
-
-		useEffect(() => {
-			if (value) {
-				setValues([BigNumber.make(value).divide(1e8).toNumber()]);
-			}
-		}, [value]);
+		useLayoutEffect(() => {
+			updateDisplayValue(value);
+		}, [updateDisplayValue, value]);
 
 		return (
 			<InputGroup>
 				<InputCurrency
 					style={{
 						background: getTrackBackground({
-							values: [trackBackgroundMinValue],
+							values: rangeValues,
 							colors: ["rgba(var(--theme-color-primary-rgb), 0.1)", "transparent"],
-							min,
-							max,
+							min: min.toNumber(),
+							max: max.toNumber(),
 						}),
 					}}
 					magnitude={magnitude}
 					type="text"
-					value={values[0]}
+					value={human.toString()}
 					ref={ref}
 					onChange={handleInput}
 				/>
-				{Number(min) < Number(max) && (
+				{max.isGreaterThan(min) && (
 					<div className="absolute bottom-0 w-full px-1">
 						<Range
 							colors={["var(--theme-color-primary)", "transparent"]}
 							step={step}
-							min={Number(min)}
-							max={Number(max)}
+							min={min.toNumber()}
+							max={max.toNumber()}
 							onChange={handleRange}
 							values={rangeValues}
 						/>
