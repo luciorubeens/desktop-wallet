@@ -39,10 +39,9 @@ type FirstStepProps = {
 	profile: Profile;
 	wallet: ReadWriteWallet;
 	setRegistrationForm: any;
-	fees: Record<string, any>;
 };
 
-export const FirstStep = ({ networks, profile, wallet, setRegistrationForm, fees }: FirstStepProps) => {
+export const FirstStep = ({ networks, profile, wallet, setRegistrationForm }: FirstStepProps) => {
 	const { t } = useTranslation();
 	const history = useHistory();
 
@@ -90,10 +89,6 @@ export const FirstStep = ({ networks, profile, wallet, setRegistrationForm, fees
 	const onSelectType = (selectedItem: SendEntityRegistrationType) => {
 		setValue("registrationType", selectedItem.value, true);
 		setRegistrationForm(registrationComponents[selectedItem.value]);
-
-		if (fees[selectedItem.value]) {
-			setValue("fee", fees[selectedItem.value].avg, true);
-		}
 	};
 
 	return (

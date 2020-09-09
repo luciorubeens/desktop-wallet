@@ -40,14 +40,7 @@ export const FirstStep = ({ senderWallet, delegate, fees }: StepProps) => {
 				<TransactionDetail className="pt-6 pb-0">
 					<FormField name="name" className="font-normal">
 						<FormLabel>{t("TRANSACTION.TRANSACTION_FEE")}</FormLabel>
-						<InputFee
-							value={fees.static}
-							defaultValue={fees.static}
-							min={fees.min}
-							avg={fees.avg}
-							max={fees.max}
-							step={0.01}
-						/>
+						<InputFee value={fees.static} min={fees.min} avg={fees.avg} max={fees.max} step={0.01} />
 					</FormField>
 				</TransactionDetail>
 			</div>

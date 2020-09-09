@@ -1,14 +1,13 @@
-import { Contracts } from "@arkecosystem/platform-sdk";
 import { NetworkData, Profile, ReadWriteWallet } from "@arkecosystem/platform-sdk-profiles";
 import { FormField, FormLabel } from "app/components/Form";
-import { useEnvironmentContext } from "app/contexts";
 import { SelectNetwork } from "domains/network/components/SelectNetwork";
 import { SelectAddress } from "domains/profile/components/SelectAddress";
-import { InputFee } from "domains/transaction/components/InputFee";
 import React, { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router-dom";
+
+import { TransactionInputFee } from "../InputFee/TransactionInputFee";
 
 type SendTransactionFormProps = {
 	networks: NetworkData[];
@@ -18,34 +17,12 @@ type SendTransactionFormProps = {
 
 export const SendTransactionForm = ({ children, networks, profile }: SendTransactionFormProps) => {
 	const history = useHistory();
-	const { env } = useEnvironmentContext();
 	const { t } = useTranslation();
 	const [wallets, setWallets] = useState<ReadWriteWallet[]>([]);
 
 	const form = useFormContext();
-	const { getValues, setValue } = form;
+	const { setValue } = form;
 	const { network, senderAddress } = form.watch();
-	const [fees, setFees] = useState<Contracts.TransactionFee>({
-		static: "5",
-		min: "0",
-		avg: "1",
-		max: "2",
-	});
-
-	const fee = getValues("fee") || null;
-
-	useEffect(() => {
-		// TODO: shouldn't be necessary once SelectAddress returns wallets instead
-		const senderWallet = profile.wallets().findByAddress(senderAddress);
-
-		if (senderWallet) {
-			const transactionFees = env.fees().findByType(senderWallet.coinId(), senderWallet.networkId(), "transfer");
-
-			setFees(transactionFees);
-
-			setValue("fee", transactionFees.avg, true);
-		}
-	}, [env, setFees, setValue, profile, senderAddress]);
 
 	useEffect(() => {
 		if (network) {
@@ -93,18 +70,17 @@ export const SendTransactionForm = ({ children, networks, profile }: SendTransac
 
 			{children}
 
-			<FormField name="fee">
-				<FormLabel label={t("TRANSACTION.TRANSACTION_FEE")} />
-				<InputFee
-					min={fees.min}
-					avg={fees.avg}
-					max={fees.max}
-					defaultValue={fee || 0}
-					value={fee || 0}
-					step={0.01}
-					onChange={(value: any) => setValue("fee", value, true)}
-				/>
-			</FormField>
+			{network && (
+				<FormField name="fee">
+					<FormLabel label={t("TRANSACTION.TRANSACTION_FEE")} />
+					<TransactionInputFee
+						coin={network.coin()}
+						network={network.id()}
+						type={"transfer"}
+						onChange={(value) => setValue("fee", value, true)}
+					/>
+				</FormField>
+			)}
 		</div>
 	);
 };

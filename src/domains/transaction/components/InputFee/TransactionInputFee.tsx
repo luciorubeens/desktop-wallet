@@ -1,38 +1,33 @@
-import { ReadWriteWallet } from "@arkecosystem/platform-sdk-profiles";
-import { DisplayValue } from "app/components/Input";
 import { useEnvironmentContext } from "app/contexts";
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useMemo } from "react";
 
 import { InputFee } from "./InputFee";
 
 type Props = {
-	wallet: ReadWriteWallet;
+	coin: string;
+	network: string;
 	type: string;
 	onChange?: (value: string) => void;
 };
 
-export const TransactionInputFee = forwardRef<HTMLInputElement, Props>(({ wallet, type, onChange }: Props, ref) => {
-	const context = useEnvironmentContext();
-	const fees = context.env.fees().findByType(wallet.coinId(), wallet.networkId(), type);
+export const TransactionInputFee = forwardRef<HTMLInputElement, Props>(
+	({ coin, network, type, onChange }: Props, ref) => {
+		const context = useEnvironmentContext();
+		const fees = useMemo(() => context.env.fees().findByType(coin, network, type), [context, coin, network, type]);
 
-	const [value, setValue] = useState(fees.avg);
-
-	const handleChange = (output: DisplayValue) => {
-		setValue(output.display);
-		onChange?.(output.value);
-	};
-
-	return (
-		<InputFee
-			step={0.01}
-			min={fees.min}
-			max={fees.max}
-			avg={fees.avg}
-			ref={ref}
-			value={value}
-			onChange={handleChange}
-		/>
-	);
-});
+		return (
+			<InputFee
+				// Range does not work with 1e8
+				step={0.0001}
+				min={fees.min}
+				max={fees.max}
+				avg={fees.avg}
+				ref={ref}
+				defaultValue={fees.avg}
+				onChange={(output) => onChange?.(output.value)}
+			/>
+		);
+	},
+);
 
 TransactionInputFee.displayName = "TransactionInputFee";

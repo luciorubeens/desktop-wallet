@@ -31,32 +31,28 @@ export const InputRange = React.forwardRef<HTMLInputElement, Props>(
 		const min = BigNumber.make(props.min);
 		const rangeValues = [human.toNumber()];
 
-		const updateDisplayValue = useCallback(
-			(valueString: string) => {
-				const output = Currency.fromString(valueString, magnitude);
-				setDisplayValue(output);
-				onChange?.(output);
-			},
-			[onChange, magnitude],
-		);
+		const convertToCurrency = useCallback((valueString: string) => Currency.fromString(valueString, magnitude), [
+			magnitude,
+		]);
 
 		const handleInput = (output: DisplayValue) => {
 			if (max.isLessThan(output.display)) {
-				return updateDisplayValue(max.toString());
+				output = convertToCurrency(max.toString());
+				return;
 			}
 			setDisplayValue(output);
 			onChange?.(output);
 		};
 
 		const handleRange = (values: number[]) => {
-			const output = Currency.fromString(values[0].toString(), magnitude);
+			const output = convertToCurrency(values[0].toString());
 			setDisplayValue(output);
 			onChange?.(output);
 		};
 
 		useLayoutEffect(() => {
-			updateDisplayValue(props.value);
-		}, [updateDisplayValue, props.value]);
+			setDisplayValue(convertToCurrency(props.value));
+		}, [convertToCurrency, props.value]);
 
 		return (
 			<InputGroup>

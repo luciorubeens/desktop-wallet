@@ -32,14 +32,8 @@ export const SendEntityRegistration = () => {
 
 	const form = useForm({ mode: "onChange" });
 	const { formState, getValues, register, setValue, unregister } = form;
-	const { registrationType, senderAddress } = getValues();
+	const { registrationType } = getValues();
 
-	const [fees, setFees] = useState<any>({
-		static: "5",
-		min: "0",
-		avg: "1",
-		max: "2",
-	});
 	const stepCount = registrationForm ? registrationForm.tabSteps + 3 : 1;
 
 	useEffect(() => {
@@ -62,23 +56,6 @@ export const SendEntityRegistration = () => {
 			}
 		}
 	}, [activeWallet, networks, setValue]);
-
-	useEffect(() => {
-		// TODO: shouldn't be necessary once SelectAddress returns wallets instead
-		const senderWallet = activeProfile.wallets().findByAddress(senderAddress);
-
-		if (senderWallet) {
-			const transactionFees = env.fees().all(senderWallet.coinId(), senderWallet.networkId());
-
-			const fees = Object.entries(transactionFees).reduce((mapping, [transactionType, fees]) => {
-				mapping[transactionType] = fees;
-
-				return mapping;
-			}, {} as Record<string, any>);
-
-			setFees(fees);
-		}
-	}, [env, setFees, setValue, activeProfile, senderAddress]);
 
 	const submitForm = () =>
 		registrationForm!.signTransaction({
@@ -130,19 +107,14 @@ export const SendEntityRegistration = () => {
 									profile={activeProfile}
 									wallet={activeWallet}
 									setRegistrationForm={setRegistrationForm}
-									fees={fees}
 								/>
 							</TabPanel>
 
 							{activeTab > 1 && registrationForm && (
-								<registrationForm.component
-									activeTab={activeTab}
-									fees={fees[registrationType]}
-									wallet={activeWallet}
-								/>
+								<registrationForm.component activeTab={activeTab} wallet={activeWallet} />
 							)}
 
-							{registrationForm && fees[registrationType] && (
+							{registrationForm && (
 								<>
 									<TabPanel tabId={stepCount - 1}>
 										<SecondStep passwordType="mnemonic" wallet={activeWallet} />

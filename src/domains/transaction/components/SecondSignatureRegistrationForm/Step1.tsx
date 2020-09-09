@@ -13,13 +13,11 @@ import React from "react";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { InputFee } from "../InputFee";
+import { TransactionInputFee } from "../InputFee/TransactionInputFee";
 
 export const GenerationStep = ({ fees, wallet }: { fees: Contracts.TransactionFee; wallet: ReadWriteWallet }) => {
 	const { t } = useTranslation();
 	const { getValues, setValue, register } = useFormContext();
-
-	const fee = getValues("fee") || null;
 
 	useEffect(() => {
 		register("secondMnemonic");
@@ -58,14 +56,11 @@ export const GenerationStep = ({ fees, wallet }: { fees: Contracts.TransactionFe
 
 				<FormField name="fee" className="mt-8">
 					<FormLabel label={t("TRANSACTION.TRANSACTION_FEE")} />
-					<InputFee
-						min={fees.min}
-						avg={fees.avg}
-						max={fees.max}
-						defaultValue={fee || 0}
-						value={fee || 0}
-						step={0.01}
-						onChange={(value: any) => setValue("fee", value, true)}
+					<TransactionInputFee
+						coin={wallet.coinId()}
+						network={wallet.networkId()}
+						type="secondSignature"
+						onChange={(value) => setValue("fee", value, true)}
 					/>
 				</FormField>
 			</div>

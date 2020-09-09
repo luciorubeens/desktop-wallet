@@ -8,9 +8,9 @@ import { Icon } from "app/components/Icon";
 import { Label } from "app/components/Label";
 import { TransactionDetail } from "app/components/TransactionDetail";
 import { useEnvironmentContext } from "app/contexts";
-import { InputFee } from "domains/transaction/components/InputFee";
+import { TransactionInputFee } from "domains/transaction/components/InputFee/TransactionInputFee";
 import { VoteList } from "domains/vote/components/VoteList";
-import React, { useEffect, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
@@ -42,18 +42,7 @@ export const FirstStep = ({
 	const coinName = wallet.coinId();
 	const network = `${coinName} ${wallet.network().name()}`;
 	const walletName = profile.wallets().findByAddress(senderAddress)?.alias();
-
-	useEffect(() => {
-		const senderWallet = profile.wallets().findByAddress(senderAddress);
-
-		if (senderWallet) {
-			const transactionFees = env.fees().findByType(senderWallet.coinId(), senderWallet.networkId(), "vote");
-
-			setFees(transactionFees);
-
-			setValue("fee", transactionFees.avg, true);
-		}
-	}, [env, setFees, setValue, profile, senderAddress]);
+	const senderWallet = useMemo(() => profile.wallets().findByAddress(senderAddress), [profile, senderAddress]);
 
 	return (
 		<section data-testid="SendVote__step--first">
@@ -99,20 +88,19 @@ export const FirstStep = ({
 					</TransactionDetail>
 				)}
 
-				<TransactionDetail className="pt-6 pb-0">
-					<FormField name="fee">
-						<FormLabel label={t("TRANSACTION.TRANSACTION_FEE")} />
-						<InputFee
-							min={fees.min}
-							avg={fees.avg}
-							max={fees.max}
-							defaultValue={fee || 0}
-							value={fee || 0}
-							step={0.01}
-							onChange={(value: any) => setValue("fee", value, true)}
-						/>
-					</FormField>
-				</TransactionDetail>
+				{senderWallet && (
+					<TransactionDetail className="pt-6 pb-0">
+						<FormField name="fee">
+							<FormLabel label={t("TRANSACTION.TRANSACTION_FEE")} />
+							<TransactionInputFee
+								coin={senderWallet.coinId()}
+								network={senderWallet.networkId()}
+								type="vote"
+								onChange={(value) => setValue("fee", value, true)}
+							/>
+						</FormField>
+					</TransactionDetail>
+				)}
 			</div>
 		</section>
 	);

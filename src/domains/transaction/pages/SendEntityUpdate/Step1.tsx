@@ -1,13 +1,14 @@
+import { ReadWriteWallet } from "@arkecosystem/platform-sdk-profiles";
 import { FormField, FormLabel } from "app/components/Form";
 import { Input } from "app/components/Input";
 import { TextArea } from "app/components/TextArea";
 import { TransactionDetail } from "app/components/TransactionDetail";
-import { InputFee } from "domains/transaction/components/InputFee";
+import { TransactionInputFee } from "domains/transaction/components/InputFee/TransactionInputFee";
 import { LinkCollection } from "domains/transaction/components/LinkCollection";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-export const FirstStep = ({ form }: { form: any }) => {
+export const FirstStep = ({ form, wallet }: { form: any; wallet: ReadWriteWallet }) => {
 	const { register } = form;
 	const { t } = useTranslation();
 
@@ -80,13 +81,7 @@ export const FirstStep = ({ form }: { form: any }) => {
 				<TransactionDetail className="pt-6 pb-0">
 					<FormField name="name" className="font-normal">
 						<FormLabel>{t("TRANSACTION.TRANSACTION_FEE")}</FormLabel>
-						<InputFee
-							defaultValue={(25 * 1e8).toFixed(0)}
-							min={(1 * 1e8).toFixed(0)}
-							avg={(50 * 1e8).toFixed(0)}
-							max={(100 * 1e8).toFixed(0)}
-							step={1}
-						/>
+						<TransactionInputFee coin={wallet.coinId()} network={wallet.networkId()} type="entityUpdate" />
 					</FormField>
 				</TransactionDetail>
 			</div>

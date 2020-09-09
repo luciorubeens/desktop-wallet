@@ -13,12 +13,13 @@ import { Label } from "app/components/Label";
 import { TabPanel, Tabs } from "app/components/Tabs";
 import { TransactionDetail } from "app/components/TransactionDetail";
 import { useEnvironmentContext } from "app/contexts";
-import { InputFee } from "domains/transaction/components/InputFee";
 import { TotalAmountBox } from "domains/transaction/components/TotalAmountBox";
 import { SendEntityRegistrationForm } from "domains/transaction/pages/SendEntityRegistration/SendEntityRegistration.models";
 import React, { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+
+import { TransactionInputFee } from "../InputFee/TransactionInputFee";
 
 const SecondStep = ({ fees, wallet }: any) => {
 	const { t } = useTranslation();
@@ -103,14 +104,11 @@ const SecondStep = ({ fees, wallet }: any) => {
 
 				<FormField name="fee" className="mt-8">
 					<FormLabel label={t("TRANSACTION.TRANSACTION_FEE")} />
-					<InputFee
-						min={fees.min}
-						avg={fees.avg}
-						max={fees.max}
-						defaultValue={fee || 0}
-						value={fee || 0}
-						step={0.01}
-						onChange={(value: any) => setValue("fee", value, true)}
+					<TransactionInputFee
+						coin={wallet.coinId()}
+						network={wallet.networkId()}
+						type="delegateRegistration"
+						onChange={(value) => setValue("fee", value, true)}
 					/>
 				</FormField>
 			</div>

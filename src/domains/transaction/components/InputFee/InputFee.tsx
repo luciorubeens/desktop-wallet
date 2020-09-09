@@ -1,11 +1,12 @@
 import { BigNumber } from "@arkecosystem/platform-sdk-support";
 import { DisplayValue, InputRange } from "app/components/Input";
 import { SelectionBar, SelectionBarOption, useSelectionState } from "app/components/SelectionBar";
-import React, { forwardRef, useLayoutEffect, useMemo } from "react";
+import React, { forwardRef, useLayoutEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 type InputFeeProps = {
-	value: string;
+	defaultValue?: string; // Satoshi
+	value?: string; // Display value
 	min: string;
 	avg: string;
 	max: string;
@@ -18,20 +19,22 @@ export const InputFee = forwardRef<HTMLInputElement, InputFeeProps>(
 	({ onChange, step, magnitude, ...props }: InputFeeProps, ref) => {
 		const { t } = useTranslation();
 
-		const value = useMemo(() => BigNumber.make(props.value), [props.value]);
+		const defaultValue = BigNumber.make(props.defaultValue || "0");
 		const min = BigNumber.make(props.min);
 		const max = BigNumber.make(props.max);
 		const avg = BigNumber.make(props.avg);
 
-		const feeControl = useSelectionState(value.toHuman(magnitude));
+		const feeControl = useSelectionState(defaultValue.toHuman());
 		const { setCheckedValue } = feeControl;
 
 		useLayoutEffect(() => {
-			setCheckedValue(value.toHuman(magnitude));
-		}, [value, magnitude, setCheckedValue]);
+			if (props.value) {
+				setCheckedValue(props.value);
+			}
+		}, [props.value, magnitude, setCheckedValue]);
 
 		const handleInput = (output: DisplayValue) => {
-			feeControl.setCheckedValue(output.display);
+			setCheckedValue(output.display);
 			onChange?.(output);
 		};
 
