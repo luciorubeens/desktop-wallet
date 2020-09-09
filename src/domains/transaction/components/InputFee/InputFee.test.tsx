@@ -18,21 +18,21 @@ describe("InputFee", () => {
 	});
 
 	it("should render", () => {
-		const { asFragment } = render(<InputFee min={min} max={max} avg={avg} defaultValue={value} step={0.01} />);
+		const { asFragment } = render(
+			<InputFee magnitude={0} min={min} max={max} avg={avg} value={value} step={0.01} />,
+		);
 
 		expect(asFragment()).toMatchSnapshot();
 	});
 
 	it("should update fee if value property changes", () => {
 		const { asFragment, getByTestId, rerender } = render(
-			<InputFee min={min} max={max} avg={avg} defaultValue={value} value={value} step={0.01} />,
+			<InputFee min={min} max={max} avg={avg} value={value} step={0.01} />,
 		);
 
-		rerender(
-			<InputFee min={min} max={max} avg={avg} defaultValue={value} value={(1 * 1e8).toFixed(0)} step={0.01} />,
-		);
+		rerender(<InputFee magnitude={0} min={min} max={max} avg={avg} value={(2 * 1e8).toFixed(0)} step={0.01} />);
 
-		expect(getByTestId("InputCurrency")).toHaveValue("1");
+		expect(getByTestId("InputCurrency")).toHaveValue("2");
 		expect(asFragment()).toMatchSnapshot();
 	});
 
@@ -40,12 +40,12 @@ describe("InputFee", () => {
 		const onChange = jest.fn();
 
 		const { asFragment, getByText } = render(
-			<InputFee min={min} max={max} avg={avg} defaultValue={value} step={0.01} onChange={onChange} />,
+			<InputFee min={min} max={max} avg={avg} value={value} step={0.01} onChange={onChange} />,
 		);
 
 		fireEvent.click(getByText(transactionTranslations.FEES.MIN));
 
-		expect(onChange).toHaveBeenCalledWith(min);
+		expect(onChange).toHaveBeenCalledWith({ display: "1.00000000", value: "100000000" });
 		expect(asFragment()).toMatchSnapshot();
 	});
 
@@ -53,12 +53,12 @@ describe("InputFee", () => {
 		const onChange = jest.fn();
 
 		const { asFragment, getByText } = render(
-			<InputFee min={min} max={max} avg={avg} defaultValue={value} step={0.01} onChange={onChange} />,
+			<InputFee min={min} max={max} avg={avg} value={value} step={0.01} onChange={onChange} />,
 		);
 
 		fireEvent.click(getByText(transactionTranslations.FEES.AVERAGE));
 
-		expect(onChange).toHaveBeenCalledWith(avg);
+		expect(onChange).toHaveBeenCalledWith({ display: "1.35400000", value: "135400000" });
 		expect(asFragment()).toMatchSnapshot();
 	});
 
@@ -66,12 +66,12 @@ describe("InputFee", () => {
 		const onChange = jest.fn();
 
 		const { asFragment, getByText } = render(
-			<InputFee min={min} max={max} avg={avg} defaultValue={value} step={0.01} onChange={onChange} />,
+			<InputFee min={min} max={max} avg={avg} value={value} step={0.01} onChange={onChange} />,
 		);
 
 		fireEvent.click(getByText(transactionTranslations.FEES.MAX));
 
-		expect(onChange).toHaveBeenCalledWith(max);
+		expect(onChange).toHaveBeenCalledWith({ display: "10.00000000", value: "1000000000" });
 		expect(asFragment()).toMatchSnapshot();
 	});
 });

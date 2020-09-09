@@ -23,16 +23,17 @@ type Props = {
 };
 
 export const InputRange = React.forwardRef<HTMLInputElement, Props>(
-	({ step, value, magnitude, onChange, ...props }: Props, ref) => {
+	({ step, magnitude, onChange, ...props }: Props, ref) => {
 		const [displayValue, setDisplayValue] = useState<DisplayValue>();
-		const human = BigNumber.make(displayValue?.display || value);
+		const value = displayValue?.display || props.value;
+		const human = BigNumber.make(value);
 		const max = useMemo(() => BigNumber.make(props.max), [props.max]);
 		const min = BigNumber.make(props.min);
 		const rangeValues = [human.toNumber()];
 
 		const updateDisplayValue = useCallback(
-			(value: string) => {
-				const output = Currency.fromString(value, magnitude);
+			(valueString: string) => {
+				const output = Currency.fromString(valueString, magnitude);
 				setDisplayValue(output);
 				onChange?.(output);
 			},
@@ -54,8 +55,8 @@ export const InputRange = React.forwardRef<HTMLInputElement, Props>(
 		};
 
 		useLayoutEffect(() => {
-			updateDisplayValue(value);
-		}, [updateDisplayValue, value]);
+			updateDisplayValue(props.value);
+		}, [updateDisplayValue, props.value]);
 
 		return (
 			<InputGroup>
@@ -70,7 +71,7 @@ export const InputRange = React.forwardRef<HTMLInputElement, Props>(
 					}}
 					magnitude={magnitude}
 					type="text"
-					value={human.toString()}
+					value={value}
 					ref={ref}
 					onChange={handleInput}
 				/>
